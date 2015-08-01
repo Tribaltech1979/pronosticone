@@ -22,6 +22,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var mysql = require('mysql');
+var pool = mysql.createPool({
+    connectionLimit : 100,
+    host : 'localhost',
+    user : 'pron',
+    password :'pron',
+    database : 'pronosticone',
+    debug : false
+});
+
+app.use(function(req,res,next){
+   req.pool = pool;
+    next();
+});
+
 app.use('/', routes);
 app.use('/users', users);
 
