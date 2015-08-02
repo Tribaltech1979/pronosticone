@@ -1,4 +1,11 @@
 extends layout
 block content
-    h1.
-       Welcome #{user}
+    h1= title
+    p Welcome #{user}
+ul
+    each torn, i in torneo
+        li
+            p torn.descr_torneo
+block sidebar
+    .widget
+        h1 Login

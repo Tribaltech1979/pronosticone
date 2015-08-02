@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     if(req.session.utente){
         res.redirect('/utente');
     }
-    else {res.render('index', { title: 'Express' });}
+    else {res.render('index', { title: 'Pronosticone' });}
 });
 //// LOGIN
 router.get('/login', function(req,res){
@@ -21,6 +21,7 @@ router.get('/utente',function(req,res){
         var pool = req.pool;
         var tmquery = "select * from v_squadre where cod_ute = "+req.session.utente;
 
+
         pool.getConnection(function(err,connection){
             if (err) {
                 connection.release();
@@ -31,10 +32,17 @@ router.get('/utente',function(req,res){
             console.log('connected as id ' + connection.threadId);
 
             connection.query(tmquery,function(err,rows){
-                connection.release();
+                //connection.release();
                 if(!err) {
-                    console.log('connessione di '+ rows);
-                    res.render('user', {"user" : rows[0].nome_squadra});
+                    var tor_query = "select * from v_torneo where cod_squadra = "+rows[0].id_squadra;
+                    connection.query(tor_query,function(err2,rows2) {
+                        if(!err) {
+                            console.log('connessione di ' + rows[0].nome_squadra);
+                            res.render('user', {"user": rows[0].nome_squadra,
+                                title: rows[0].nome_squadra + ' Homepage',
+                                "torneo" : rows2 });
+                        }
+                    });
                 }
                 else{
                     res.redirect('/login');
