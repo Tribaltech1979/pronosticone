@@ -112,6 +112,17 @@ router.post('/login',function(req,res){
 
 });
 
+////////////////////
+///// TORNEO
+///////////////////
+router.get('/torneo*', function(req, res){
+    var pool = req.pool;
+    var tid = req.params.tid;
+
+    console.log('tid = '+ tid );
+});
+
+
 ///////////////////////
 /////USER LIST TEST
 /////////////////////
