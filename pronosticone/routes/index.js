@@ -32,7 +32,6 @@ router.get('/utente',function(req,res){
             console.log('connected as id ' + connection.threadId);
 
             connection.query(tmquery,function(err,rows){
-                //connection.release();
                 if(!err) {
                     var tor_query = "select * from v_torneo where cod_squadra = "+rows[0].id_squadra;
                     connection.query(tor_query,function(err2,rows2) {
@@ -51,14 +50,19 @@ router.get('/utente',function(req,res){
                                 }
                             });
                         }
+                        else {
+                            connection.release();
+                            res.redirect('/login');
+                        }
                     });
                 }
                 else{
+                    connection.release();
                     res.redirect('/login');
                 }
             });
 
-            connection.release();
+
             connection.on('error', function(err) {
                 res.json({"code" : 100, "status" : "Error in connection database"});
 
