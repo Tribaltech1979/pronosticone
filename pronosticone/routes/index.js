@@ -37,10 +37,19 @@ router.get('/utente',function(req,res){
                     var tor_query = "select * from v_torneo where cod_squadra = "+rows[0].id_squadra;
                     connection.query(tor_query,function(err2,rows2) {
                         if(!err2) {
-                            console.log('connessione di ' + rows[0].nome_squadra);
-                            res.render('user', {"user": rows[0].nome_squadra,
-                                title: rows[0].nome_squadra + ' Homepage',
-                                "torneo" : rows2 });
+                            var cal_query = "select * from v_global_calen where cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra ;
+                            connection.query(cal_query, function (err3, rows3) {
+                                connection.release();
+                                if (!err3) {
+                                    console.log('connessione di ' + rows[0].nome_squadra);
+                                    res.render('user', {"user": rows[0].nome_squadra,
+                                        title: rows[0].nome_squadra + ' Homepage',
+                                        "torneo": rows2 ,
+                                        "calendario" : rows3
+                                    });
+
+                                }
+                            });
                         }
                     });
                 }
@@ -49,6 +58,7 @@ router.get('/utente',function(req,res){
                 }
             });
 
+            connection.release();
             connection.on('error', function(err) {
                 res.json({"code" : 100, "status" : "Error in connection database"});
 

@@ -5,6 +5,11 @@ block content
     ul
     each user, i in torneo
         li
-            a(href="/torneo/:#{user.cod_torneo}")= user.descr_torneo
+            a(href="/torneo?tid=#{user.cod_torneo}")= user.descr_torneo
+block sidebar
     .widget
         h1 Partite
+        ul
+        each par, i in calendario
+            li
+                a(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")= par.sq_home + " VS " + par.sq_away
