@@ -36,7 +36,7 @@ router.get('/utente',function(req,res){
                 if(!err) {
                     var tor_query = "select * from v_torneo where cod_squadra = "+rows[0].id_squadra;
                     connection.query(tor_query,function(err2,rows2) {
-                        if(!err) {
+                        if(!err2) {
                             console.log('connessione di ' + rows[0].nome_squadra);
                             res.render('user', {"user": rows[0].nome_squadra,
                                 title: rows[0].nome_squadra + ' Homepage',
