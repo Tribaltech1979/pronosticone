@@ -117,9 +117,9 @@ router.post('/login',function(req,res){
 ///////////////////
 router.get('/torneo*', function(req, res){
     var pool = req.pool;
-    var tid = req.params.tid;
+    var mtid = req.query.tid;
 
-    console.log('tid = '+ tid );
+    console.log('tid = '+ mtid );
 });
 
 
