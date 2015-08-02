@@ -33,7 +33,8 @@ router.get('/utente',function(req,res){
             connection.query(tmquery,function(err,rows){
                 connection.release();
                 if(!err) {
-                    res.render('user', {"user" : rows});
+                    console.log('connessione di '+ rows);
+                    res.render('user', {"user" : rows[0].nome_squadra});
                 }
                 else{
                     res.redirect('/login');
