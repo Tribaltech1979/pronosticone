@@ -71,8 +71,8 @@ router.post('/login',function(req,res){
             connection.release();
             if(!err) {
                 console.log(rows[0]);
-                req.session.utente = rows[0];
-                res.redirect('/');
+                req.session.utente = rows[0].UTE_COD_UTENTE;
+                res.redirect('/utente');
             }
             else{
                 res.redirect('/login');
