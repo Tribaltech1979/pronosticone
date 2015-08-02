@@ -3,8 +3,8 @@ block content
     h1= title
     p Welcome #{user}
     ul
-        each torn, i in torneo
-            li = torn.descr_torneo
-block sidebar
+    each user, i in torneo
+        li
+            a(href="/torneo/:#{user.cod_torneo}")= user.descr_torneo
     .widget
         h1 Partite
