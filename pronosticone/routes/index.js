@@ -41,6 +41,7 @@ router.get('/utente',function(req,res){
                                 connection.release();
                                 if (!err3) {
                                     console.log('connessione di ' + rows[0].nome_squadra);
+                                    req.session.id_squadra = rows[0].id_squadra;
                                     res.render('user', {"user": rows[0].nome_squadra,
                                         title: rows[0].nome_squadra + ' Homepage',
                                         "torneo": rows2 ,
@@ -119,7 +120,32 @@ router.get('/torneo*', function(req, res){
     var pool = req.pool;
     var mtid = req.query.tid;
 
-    console.log('tid = '+ mtid );
+    var class_query = 'select * from classifica where cod_torneo = ' + mtid ;
+
+    pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;
+        }
+
+        console.log('connected as id ' + connection.threadId);
+
+        connection.query(class_query,function(err,rows){
+            connection.release();
+            if(!err) {
+                res.render('torneo',{
+                    "classifica" : rows,
+                    "title" : 'Torneo'
+                });
+            }
+        });
+
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+    });
 });
 
 
