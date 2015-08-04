@@ -30,11 +30,5 @@ block content
                     td= item.diff
     - var class = classifica;
     - var container = document.getElementById('classificat');
-    - var hot = new Handsontable(container, {
-        data: class,
-        minSpareRows: 1,
-        rowHeaders: true,
-        colHeaders: true,
-        contextMenu: true
-        });
+    - var hot = new Handsontable(container, { data: class, minSpareRows: 1,rowHeaders: true,colHeaders: true,contextMenu: true});
     #classificat
