@@ -28,4 +28,13 @@ block content
                     td= item.gol_fatti
                     td= item.gol_subiti
                     td= item.diff
-    #example
+    - var class = classifica;
+    - var container = document.getElementById('classificat');
+    - var hot = new Handsontable(container, {
+        data: class,
+        minSpareRows: 1,
+        rowHeaders: true,
+        colHeaders: true,
+        contextMenu: true
+        });
+    #classificat
