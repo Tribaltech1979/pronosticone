@@ -123,7 +123,7 @@ router.get('/torneo*', function(req, res){
     if(tid){
         res.render('ttorneo',{
             "title" :'Torneo',
-            "tid" : mtid
+            "tid" : tid
         });
     }
 /*
