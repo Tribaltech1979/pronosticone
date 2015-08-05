@@ -1,18 +1,77 @@
 /**
  * Created by Daniele on 04/08/2015.
  */
-var data = [
-    ["", "Ford", "Volvo", "Toyota", "Honda"],
-    ["2014", 10, 11, 12, 13],
-    ["2015", 20, 11, 14, 13],
-    ["2016", 30, 15, 12, 13]
-];
+var hTableContainer = $('#classificat');
+function getMyForm(formName, callback) {
+    $.get("/gettorneo/" + formName, function (dataOutput) {
+        //var dataOutputObject = JSON.parse(dataOutput);
+        var dataOutputObject = dataOutput;
+        ;
+        var tableData = dataOutputObject.resultArray, colArray = [], colHeaders = [], key;
+        if (tableData.length >= 1) {
+            //****ToDo Need a better way to make sure all columns are accounted for not just ones in the first record
+            for (key in tableData[0]) {
+                colArray.push({data: key});
+                colHeaders.push(key);
+            }
+        }
+        callback(tableData, colHeaders, colArray);
+       // setupEvent(formName);
+    });
+}
 
-var container = document.getElementById('example');
-var hot = new Handsontable(container, {
-    data: data,
-    minSpareRows: 1,
-    rowHeaders: true,
-    colHeaders: true,
-    contextMenu: true
+function createTable(tableData, colHeaders, colArray) {
+    hTableContainer.handsontable({
+        data: tableData,
+        colHeaders: colHeaders,
+        columns: colArray,
+        contextMenu: true,
+        autoWrapRow: true,
+        currentRowClassName: 'currentRow',
+        currentColClassName: 'currentCol'/*,
+
+        afterChange: function (change, source) {
+            if (source === 'loaddata') {
+                return;
+            }
+            if (change && change.length === 1) {
+                chgRowData = ht.getDataAtRow(change[0][0]);
+                exist = objValueExists(ht.chgsArray, chgRowData, "_id")
+                if (exist >= 0) {
+                    removed = ht.chgsArray.splice(exist,1);
+                }
+                ht.chgsArray.push(chgRowData);
+            }
+        },
+        afterCreateRow: function(i, amt) {
+            var ht = hTableContainer.handsontable('getInstance');
+            var rowData = ht.getDataAtRow(i);
+            rowData._id = "NEW"+i;
+        },
+        beforeRemoveRow: function(i, amt) {
+            var collName = $('#formID').text();
+            var rmRowData = ht.getDataAtRow(i);
+            //**In future maybe have where you can delete multiple rows
+            //**Also check if new row being deleted before sending to server
+            var json_send = {cName: collName, iDetails:rmRowData};
+            $.ajax("/form/removeline", {
+                data: JSON.stringify(json_send),
+                type: "post", contentType: "application/json",
+                success: function(result) {
+                    console.log(result)
+                }
+            });
+        }*/
+    });
+    var ht = hTableContainer.handsontable('getInstance');
+    ht.chgsArray = [];
+    hTableContainer.handsontable('selectCell', 1, 1);
+}
+
+
+$(document).ready(function () {
+    var itid = $('#tid').text();
+    if (itid) {
+        var tData = getMyForm(itid, createTable);
+    }
 });

@@ -117,9 +117,16 @@ router.post('/login',function(req,res){
 ///// TORNEO
 ///////////////////
 router.get('/torneo*', function(req, res){
-    var pool = req.pool;
-    var mtid = req.query.tid;
+  //  var pool = req.pool;
+    var tid = req.query.tid;
 
+    if(tid){
+        res.render('ttorneo'{
+            "title" :'Torneo',
+            "tid" : mtid
+        });
+    }
+/*
     var class_query = 'select * from classifica where cod_torneo = ' + mtid ;
 
     pool.getConnection(function(err,connection){
@@ -146,7 +153,40 @@ router.get('/torneo*', function(req, res){
 
         });
     });
+*/
+
+
 });
+
+router.get('/gettorneo/*', function(req, res){
+    var pool = req.pool;
+    var mtid = req.params.tid;
+
+    var class_query = 'select * from classifica where cod_torneo = ' + mtid ;
+
+    pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;
+        }
+
+        console.log('connected as id ' + connection.threadId);
+
+        connection.query(class_query,function(err,rows){
+            connection.release();
+            if(!err) {
+                res.json(rows);
+            }
+        });
+
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+    });
+});
+
 
 
 ///////////////////////
