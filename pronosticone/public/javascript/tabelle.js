@@ -74,7 +74,9 @@ function createTable(tableData, colHeaders, colArray) {
 
 $(document).ready(function () {
     var itid = $('#tid').text();
+    var tit = $('#title').text();
     window.alert(itid);
+    window.alert(tit);
     if (itid) {
         var tData = getMyForm(itid, createTable);
     }
