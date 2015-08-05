@@ -6,8 +6,7 @@ function getMyForm(tid , callback) {
     $.get("/gettorneo/" + tid, function (dataOutput) {
         //var dataOutputObject = JSON.parse(dataOutput);
         var dataOutputObject = dataOutput;
-        window.alert("data");
-        var tableData = dataOutputObject.resultArray, colArray = [], colHeaders = [], key;
+        var tableData = dataOutputObject, colArray = [], colHeaders = [], key;
         window.alert(tableData.length);
         if (tableData.length >= 1) {
             //****ToDo Need a better way to make sure all columns are accounted for not just ones in the first record
@@ -76,7 +75,6 @@ $(document).ready(function () {
     var itid = $('#tid').text();
 
     if (itid) {
-        window.alert(itid);
         var tData = getMyForm(itid, createTable);
     }
 });
