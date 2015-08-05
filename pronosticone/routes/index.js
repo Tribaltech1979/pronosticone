@@ -162,7 +162,7 @@ router.get('/gettorneo/:tid', function(req, res){
     var pool = req.pool;
     var mtid = req.params.tid;
 
-    log.console(mtid);
+    console.log(mtid);
 
     var class_query = 'select * from classifica where cod_torneo = ' + mtid ;
 
