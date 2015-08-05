@@ -6,8 +6,9 @@ function getMyForm(formName, callback) {
     $.get("/gettorneo/" + formName, function (dataOutput) {
         //var dataOutputObject = JSON.parse(dataOutput);
         var dataOutputObject = dataOutput;
-        ;
+        window.alert("data");
         var tableData = dataOutputObject.resultArray, colArray = [], colHeaders = [], key;
+        window.alert(tableData.length);
         if (tableData.length >= 1) {
             //****ToDo Need a better way to make sure all columns are accounted for not just ones in the first record
             for (key in tableData[0]) {
@@ -15,6 +16,7 @@ function getMyForm(formName, callback) {
                 colHeaders.push(key);
             }
         }
+        window.alert("pre callback");
         callback(tableData, colHeaders, colArray);
        // setupEvent(formName);
     });
@@ -69,8 +71,10 @@ function createTable(tableData, colHeaders, colArray) {
 }
 
 
+
 $(document).ready(function () {
     var itid = $('#tid').text();
+    window.alert(itid);
     if (itid) {
         var tData = getMyForm(itid, createTable);
     }
