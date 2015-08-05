@@ -158,7 +158,7 @@ router.get('/torneo*', function(req, res){
 
 });
 
-router.get('/gettorneo/*', function(req, res){
+router.get('/gettorneo/:tid', function(req, res){
     var pool = req.pool;
     var mtid = req.params.tid;
 
