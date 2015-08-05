@@ -15,7 +15,6 @@ function getMyForm(tid , callback) {
                 colHeaders.push(key);
             }
         }
-        window.alert("pre callback");
         callback(tableData, colHeaders, colArray);
        // setupEvent(formName);
     });
@@ -30,7 +29,8 @@ function createTable(tableData, colHeaders, colArray) {
         rowHeaders: false,
         columns : colArray,
         colHeaders: colHeaders,
-        contextMenu: false
+        contextMenu: false,
+        readOnly : true
     });
    /* hTableContainer.handsontable({
         data: tableData,
