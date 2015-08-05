@@ -1,7 +1,7 @@
 /**
  * Created by Daniele on 04/08/2015.
  */
-var hTableContainer = $('#classificat');
+//var hTableContainer = $('#classificat');
 function getMyForm(tid , callback) {
     $.get("/gettorneo/" + tid, function (dataOutput) {
         //var dataOutputObject = JSON.parse(dataOutput);
@@ -22,14 +22,24 @@ function getMyForm(tid , callback) {
 }
 
 function createTable(tableData, colHeaders, colArray) {
-    hTableContainer.handsontable({
+    var container = document.getElementById('classificat');
+
+    var hot = new Handsontable(container, {
+        data: tableData,
+        minSpareRows: 1,
+        rowHeaders: false,
+        columns : colArray,
+        colHeaders: colHeaders,
+        contextMenu: false
+    });
+   /* hTableContainer.handsontable({
         data: tableData,
         colHeaders: colHeaders,
         columns: colArray,
         contextMenu: true,
         autoWrapRow: true,
         currentRowClassName: 'currentRow',
-        currentColClassName: 'currentCol'/*,
+        currentColClassName: 'currentCol',
 
         afterChange: function (change, source) {
             if (source === 'loaddata') {
@@ -62,11 +72,11 @@ function createTable(tableData, colHeaders, colArray) {
                     console.log(result)
                 }
             });
-        }*/
+        }
     });
     var ht = hTableContainer.handsontable('getInstance');
     ht.chgsArray = [];
-    hTableContainer.handsontable('selectCell', 1, 1);
+    hTableContainer.handsontable('selectCell', 1, 1);*/
 }
 
 
