@@ -117,17 +117,10 @@ router.post('/login',function(req,res){
 ///// TORNEO
 ///////////////////
 router.get('/torneo*', function(req, res){
-  //  var pool = req.pool;
+  var pool = req.pool;
     var tid = req.query.tid;
 
-    if(tid){
-        res.render('ttorneo',{
-            "title" :'Torneo',
-            "tid" : tid
-        });
-    }
-/*
-    var class_query = 'select * from classifica where cod_torneo = ' + mtid ;
+    var class_query = 'select * from Torneo where TOR_COD_TORNEO = ' + mtid ;
 
     pool.getConnection(function(err,connection){
         if (err) {
@@ -141,9 +134,17 @@ router.get('/torneo*', function(req, res){
         connection.query(class_query,function(err,rows){
             connection.release();
             if(!err) {
-                res.render('torneo',{
-                    "classifica" : rows,
-                    "title" : 'Torneo'
+                var admin = false;
+                if(req.session.utente){
+                    if(req.session.utente == rows[0].TOR_COD_MASTER){
+                        admin = true;
+                    }
+                }
+
+                res.render('ttorneo',{
+                    "title" : rows[0].TOR_DESCR_TORNEO,
+                    "tid" : tid,
+                    "admin" : admin
                 });
             }
         });
@@ -153,7 +154,7 @@ router.get('/torneo*', function(req, res){
 
         });
     });
-*/
+
 
 
 });

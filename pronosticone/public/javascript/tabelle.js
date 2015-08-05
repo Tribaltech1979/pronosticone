@@ -7,7 +7,6 @@ function getMyForm(tid , callback) {
         //var dataOutputObject = JSON.parse(dataOutput);
         var dataOutputObject = dataOutput;
         var tableData = dataOutputObject, colArray = [], colHeaders = [], key;
-        window.alert(tableData.length);
         if (tableData.length >= 1) {
             //****ToDo Need a better way to make sure all columns are accounted for not just ones in the first record
             for (key in tableData[0]) {
