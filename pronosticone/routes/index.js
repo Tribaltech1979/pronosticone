@@ -121,7 +121,7 @@ router.get('/torneo*', function(req, res){
     var tid = req.query.tid;
 
     if(tid){
-        res.render('ttorneo'{
+        res.render('ttorneo',{
             "title" :'Torneo',
             "tid" : mtid
         });
