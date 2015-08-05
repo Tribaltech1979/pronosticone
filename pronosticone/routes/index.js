@@ -120,7 +120,7 @@ router.get('/torneo*', function(req, res){
   var pool = req.pool;
     var tid = req.query.tid;
 
-    var class_query = 'select * from Torneo where TOR_COD_TORNEO = ' + mtid ;
+    var class_query = 'select * from Torneo where TOR_COD_TORNEO = ' + tid ;
 
     pool.getConnection(function(err,connection){
         if (err) {
