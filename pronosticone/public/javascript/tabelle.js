@@ -2,8 +2,8 @@
  * Created by Daniele on 04/08/2015.
  */
 var hTableContainer = $('#classificat');
-function getMyForm(formName, callback) {
-    $.get("/gettorneo/" + formName, function (dataOutput) {
+function getMyForm(tid , callback) {
+    $.get("/gettorneo/" + tid, function (dataOutput) {
         //var dataOutputObject = JSON.parse(dataOutput);
         var dataOutputObject = dataOutput;
         window.alert("data");
@@ -74,10 +74,9 @@ function createTable(tableData, colHeaders, colArray) {
 
 $(document).ready(function () {
     var itid = $('#tid').text();
-    var tit = $('#title').text();
-    window.alert(itid);
-    window.alert(tit);
+
     if (itid) {
+        window.alert(itid);
         var tData = getMyForm(itid, createTable);
     }
 });
