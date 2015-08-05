@@ -162,7 +162,7 @@ router.get('/gettorneo/:tid', function(req, res){
     var pool = req.pool;
     var mtid = req.params.tid;
 
-    var class_query = 'select * from classifica where cod_torneo = ' + mtid ;
+    var class_query = 'select nome_squadra as Squadra, giocate as Giocate, punti as Punti, vinte as Vinte, pareggiate as Pareggiate, perse as Perse, gol_fatti as Fatti, gol_subiti as Subiti from classifica where cod_torneo = ' + mtid ;
 
     pool.getConnection(function(err,connection){
         if (err) {
