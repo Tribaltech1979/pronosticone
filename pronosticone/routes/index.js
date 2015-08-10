@@ -187,7 +187,182 @@ router.get('/gettorneo/:tid', function(req, res){
         });
     });
 });
+////////////////////
+//// PARTITA
+/////////////////////
 
+router.get('/partita*', function(req, res){
+    var pool = req.pool;
+    var tid = req.query.tid;
+    var ngio = req.query.ngio;
+    var npar = req.query.npar;
+
+
+    var check1= 'SELECT if (sysdate() < GIO_DATA_INIZIO, 1,0) as CH1, if (sysdate()> GIO_DATA_FINE,1,0) as CH2  FROM Giornate where GIO_COD_TORNEO = '+ tid + ' and GIO_NRO_GIORNATA = '+ngio;
+    var check2= 'SELECT * FROM Calendario where CAL_COD_TORNEO = ' + tid + ' and CAL_NRO_GIORNATA = '+ngio+' and CAL_NRO_PARTITA = '+ npar;
+
+    var pron = 'SELECT * FROM v_pronostico where cod_torneo = '+tid+' and nro_giornata = '+ngio+' and nro_partita = '+npar+' and pr_squadra = '+ req.session.id_squadra;
+
+    if (req.session.utente){
+        if(req.session.id_squadra){
+            if(tid && ngio){
+                pool.getConnection(function(err,connection){
+                    if (err) {
+                        connection.release();
+                        res.json({"code" : 100, "status" : "Error in connection database"});
+                        return;
+                    }
+
+                    console.log('connected as id ' + connection.threadId);
+
+                    connection.query(check1,function(err,rows){
+                        connection.release();
+                        if(!err) {
+                            if(rows[0].CH1 == 1){
+ //////////////////////////////////// SIAMO PRIMA DELL'INIZIO
+                                pool.getConnection(function(err,connection){
+                                    if (err) {
+                                        connection.release();
+                                        res.json({"code" : 100, "status" : "Error in connection database"});
+                                        return;
+                                    }
+
+                                    console.log('connected as id ' + connection.threadId);
+
+                                    connection.query(check2,function(err2,rows2){
+                                        connection.release();
+                                        if(!err2) {
+                                            if(rows2[0].CAL_COD_HOME == req.session.id_squadra){
+                                                //////////// E' la squadra di casa
+                                                pool.getConnection(function(err,connection){
+                                                    if (err) {
+                                                        connection.release();
+                                                        res.json({"code" : 100, "status" : "Error in connection database"});
+                                                        return;
+                                                    }
+
+                                                    console.log('connected as id ' + connection.threadId);
+
+                                                    connection.query(class_query,function(err4,rows4){
+                                                        connection.release();
+                                                        if(!err4) {
+                                                            res.render('compila',{
+                                                                'htab' : rows4
+                                                            });
+                                                        }
+                                                    });
+
+                                                    connection.on('error', function(err) {
+                                                        res.json({"code" : 100, "status" : "Error in connection database"});
+
+                                                    });
+                                                });
+                                            }
+                                            else if (rows2[0].CAL_COD_AWAY == req.session.id_squadra){
+                                                //////////// E' la squadra in transferta
+                                                pool.getConnection(function(err,connection){
+                                                    if (err) {
+                                                        connection.release();
+                                                        res.json({"code" : 100, "status" : "Error in connection database"});
+                                                        return;
+                                                    }
+
+                                                    console.log('connected as id ' + connection.threadId);
+
+                                                    connection.query(class_query,function(err4,rows4){
+                                                        connection.release();
+                                                        if(!err4) {
+                                                            res.render('compila',{
+                                                                'htab' : rows4
+                                                            });
+                                                        }
+                                                    });
+
+                                                    connection.on('error', function(err) {
+                                                        res.json({"code" : 100, "status" : "Error in connection database"});
+
+                                                    });
+                                                });
+
+                                            }
+                                            else{
+                                                /////////// E' uno spettatore prima dell'inizio
+                                                res.render('aspetta');
+                                            }
+                                        }
+                                    });
+
+                                    connection.on('error', function(err) {
+                                        res.json({"code" : 100, "status" : "Error in connection database"});
+
+                                    });
+                                });
+                            }
+                            else{
+ //////////////////////////////////// SIAMO DOPO L'INIZIO
+                                res.render('risultato');
+                            }
+                        }
+                    });
+
+                    connection.on('error', function(err) {
+                        res.json({"code" : 100, "status" : "Error in connection database"});
+
+                    });
+                });
+            }
+            else{
+                res.redirect(req.session.backURL || '/')
+            }
+
+        }
+        else{
+            res.redirect('/login');
+        }
+    }
+    else{
+        res.redirect('/login');
+    }
+
+
+
+
+    pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;
+        }
+
+        console.log('connected as id ' + connection.threadId);
+
+        connection.query(class_query,function(err,rows){
+            connection.release();
+            if(!err) {
+                var admin = false;
+                if(req.session.utente){
+                    if(req.session.utente == rows[0].TOR_COD_MASTER){
+                        admin = true;
+                    }
+                }
+
+                res.render('ttorneo',{
+                    "title" : rows[0].TOR_DESCR_TORNEO,
+                    "tid" : tid,
+                    "admin" : admin
+                });
+            }
+        });
+
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+    });
+
+
+
+});
 
 
 ///////////////////////

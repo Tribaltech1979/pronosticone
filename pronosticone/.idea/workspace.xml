@@ -23,31 +23,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32079905" vertical-offset="1801" max-vertical-offset="3944">
-              <caret line="122" column="71" selection-start-line="122" selection-start-column="71" selection-end-line="122" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3654" max-vertical-offset="6919">
+              <caret line="203" column="23" selection-start-line="203" selection-start-column="23" selection-end-line="203" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ttorneo.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/ttorneo.jade">
+      <file leaf-file-name="risultato.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/risultato.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="306">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="153">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <file leaf-file-name="aspetta.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/aspetta.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="374">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="153">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compila.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/compila.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="323">
+              <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -56,8 +66,28 @@
       <file leaf-file-name="tabelle.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascript/tabelle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-              <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="757" max-vertical-offset="1598">
+              <caret line="80" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="88" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ttorneo.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/ttorneo.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="323">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comptab.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascript/comptab.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7074911" vertical-offset="0" max-vertical-offset="1887">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -67,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/views/index.jade">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="289">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="13" />
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -83,21 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="handsontable.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascript/handsontable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="449568" max-vertical-offset="450500">
-              <caret line="26496" column="3" selection-start-line="26496" selection-start-column="3" selection-end-line="26496" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="3111">
-              <caret line="166" column="24" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2193" max-vertical-offset="3111">
+              <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -122,18 +142,20 @@
         <option value="$PROJECT_DIR$/javascript/tabelle.js" />
         <option value="$PROJECT_DIR$/public/javascript/handsontable.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/handsontable.css" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/views/torneo.jade" />
-        <option value="$PROJECT_DIR$/views/ttorneo.jade" />
         <option value="$PROJECT_DIR$/public/javascript/tabelle.js" />
+        <option value="$PROJECT_DIR$/views/ttorneo.jade" />
+        <option value="$PROJECT_DIR$/views/layout.jade" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/compila.jade" />
+        <option value="$PROJECT_DIR$/public/javascript/comptab.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="256" />
-    <option name="y" value="82" />
+    <option name="x" value="475" />
+    <option name="y" value="33" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -163,6 +185,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -245,9 +268,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pronosticone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pronosticone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,19 +359,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="256" y="82" width="1400" height="1000" extended-state="0" />
+    <frame x="475" y="33" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -340,25 +380,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -380,6 +401,99 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="289">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="340">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/handsontable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450432" max-vertical-offset="450534">
+          <caret line="26496" column="3" selection-start-line="26496" selection-start-column="3" selection-end-line="26496" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="3111">
+          <caret line="166" column="24" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3944">
+          <caret line="122" column="71" selection-start-line="122" selection-start-column="71" selection-end-line="122" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/ttorneo.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="323">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="374">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/tabelle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1598">
+          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="289">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="340">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/handsontable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450432" max-vertical-offset="450534">
+          <caret line="26496" column="3" selection-start-line="26496" selection-start-column="3" selection-end-line="26496" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="3111">
+          <caret line="166" column="24" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3247">
@@ -392,7 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="782">
           <caret line="39" column="61" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -424,7 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="449602" max-vertical-offset="450534">
           <caret line="26496" column="3" selection-start-line="26496" selection-start-column="3" selection-end-line="26496" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -440,7 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
           <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -456,7 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="612">
           <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -480,7 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="357">
           <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -510,7 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1394">
           <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -554,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
           <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -572,22 +679,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="289">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/handsontable.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="23894" max-vertical-offset="24803">
           <caret line="1453" column="0" selection-start-line="1453" selection-start-column="0" selection-end-line="1453" selection-end-column="0" />
-          <folding>
-            <element signature="e#26934#27151#2" expanded="false" />
-            <element signature="e#27243#27460#2" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/torneo.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.4" vertical-offset="0" max-vertical-offset="646">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/handsontable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="449602" max-vertical-offset="450534">
+          <caret line="26496" column="3" selection-start-line="26496" selection-start-column="3" selection-end-line="26496" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="374">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2193" max-vertical-offset="3111">
+          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -599,58 +723,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/torneo.jade">
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.4" vertical-offset="0" max-vertical-offset="646">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="32" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3654" max-vertical-offset="6919">
+          <caret line="203" column="23" selection-start-line="203" selection-start-column="23" selection-end-line="203" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/handsontable.js">
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="449602" max-vertical-offset="450534">
-          <caret line="26496" column="3" selection-start-line="26496" selection-start-column="3" selection-end-line="26496" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="3111">
-          <caret line="166" column="24" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="374">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="289">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/ttorneo.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="306">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="323">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/tabelle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="757" max-vertical-offset="1598">
+          <caret line="80" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="88" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/views/aspetta.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32079905" vertical-offset="1801" max-vertical-offset="3944">
-          <caret line="122" column="71" selection-start-line="122" selection-start-column="71" selection-end-line="122" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="841">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/risultato.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="841">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/compila.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="323">
+          <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/comptab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7074911" vertical-offset="0" max-vertical-offset="1887">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
