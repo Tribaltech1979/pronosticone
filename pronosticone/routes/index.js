@@ -269,7 +269,7 @@ router.get('/partita*', function(req, res){
 
                                                     console.log('connected as id ' + connection.threadId);
 
-                                                    connection.query(class_query,function(err4,rows4){
+                                                    connection.query(pron,function(err4,rows4){
                                                         connection.release();
                                                         if(!err4) {
                                                             res.render('compila',{
@@ -323,42 +323,6 @@ router.get('/partita*', function(req, res){
     else{
         res.redirect('/login');
     }
-
-
-
-
-    pool.getConnection(function(err,connection){
-        if (err) {
-            connection.release();
-            res.json({"code" : 100, "status" : "Error in connection database"});
-            return;
-        }
-
-        console.log('connected as id ' + connection.threadId);
-
-        connection.query(class_query,function(err,rows){
-            connection.release();
-            if(!err) {
-                var admin = false;
-                if(req.session.utente){
-                    if(req.session.utente == rows[0].TOR_COD_MASTER){
-                        admin = true;
-                    }
-                }
-
-                res.render('ttorneo',{
-                    "title" : rows[0].TOR_DESCR_TORNEO,
-                    "tid" : tid,
-                    "admin" : admin
-                });
-            }
-        });
-
-        connection.on('error', function(err) {
-            res.json({"code" : 100, "status" : "Error in connection database"});
-
-        });
-    });
 
 
 
