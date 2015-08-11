@@ -3,23 +3,23 @@
 
 extends layout
 block content
-    form(name='compila')
+    form(name='compila', method='post', action='/salvapron')
         table.table-responsive.table-bordered
             thead
                 tr
-                    th Squadra 1
-                    th Squadra 2
-                    th Gol 1
-                    th Gol 2
-                    th Gol 1
-                    th Gol 2
-                    th Jolly
-                    th Tot gol
-                    th Tot gol
-                    th Jolly
-                    th Segno
-                    th Segno
-                    th Jolly
+                    th.col-md-2 Squadra 1
+                    th.col-md-2 Squadra 2
+                    th.col-md-2 Gol 1
+                    th.col-md-2 Gol 2
+                    th.col-md-2 Gol 1
+                    th.col-md-2 Gol 2
+                    th.col-md-2 Jolly
+                    th.col-md-2 Tot gol
+                    th.col-md-2 Tot gol
+                    th.col-md-2 Jolly
+                    th.col-md-2 Segno
+                    th.col-md-2 Segno
+                    th.col-md-2 Jolly
             tbody
                 - each item in htab
                     tr
