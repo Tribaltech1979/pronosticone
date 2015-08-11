@@ -201,7 +201,7 @@ router.get('/partita*', function(req, res){
     var check1= 'SELECT if (sysdate() < GIO_DATA_INIZIO, 1,0) as CH1, if (sysdate()> GIO_DATA_FINE,1,0) as CH2  FROM Giornate where GIO_COD_TORNEO = '+ tid + ' and GIO_NRO_GIORNATA = '+ngio;
     var check2= 'SELECT * FROM Calendario where CAL_COD_TORNEO = ' + tid + ' and CAL_NRO_GIORNATA = '+ngio+' and CAL_NRO_PARTITA = '+ npar;
 
-    var pron = 'SELECT * FROM v_pronostico where cod_torneo = '+tid+' and nro_giornata = '+ngio+' and nro_partita = '+npar+' and pr_squadra = '+ req.session.id_squadra;
+    var pron = 'SELECT * FROM v_pronostico where cod_torneo = '+tid+' and nro_giornata = '+ngio+' and pr_squadra = '+ req.session.id_squadra;
 
     if (req.session.utente){
         if(req.session.id_squadra){
