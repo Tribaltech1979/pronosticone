@@ -4,7 +4,7 @@
 extends layout
 block content
     form(name='compila')
-        table.table-bordered
+        table.table-responsive
             thead
                 tr
                     th Squadra 1
@@ -26,25 +26,25 @@ block content
                         td= item.sq_casa
                         td= item.sq_away
                         td
-                            input(type="text" , name="G1-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa}")
+                            input.col-xs-1(type="text" , name="G1-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa}")
                         td
-                            input(type="text" , name="G2-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away}")
+                            input.col-xs-1(type="text" , name="G2-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away}")
                         td
-                            input(type="text" , name="G3-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa2}")
+                            input.col-xs-1(type="text" , name="G3-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa2}")
                         td
-                            input(type="text" , name="G4-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away2}")
+                            input.col-xs-1(type="text" , name="G4-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away2}")
                         td
-                            input(type="text" , name="G5-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_gol}")
+                            input.col-xs-1(type="text" , name="G5-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_gol}")
                         td
-                            input(type="text" , name="G6-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol}")
+                            input.col-xs-1(type="text" , name="G6-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol}")
                         td
-                            input(type="text" , name="G7-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol2}")
+                            input.col-xs-1(type="text" , name="G7-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol2}")
                         td
-                            input(type="text" , name="G8-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_ng}")
+                            input.col-xs-1(type="text" , name="G8-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_ng}")
                         td
-                            input(type="text" , name="G9-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno}")
+                            input.col-xs-1(type="text" , name="G9-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno}")
                         td
-                            input(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
+                            input.col-xs-1(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
                         td
-                            input(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
+                            input.col-xs-1(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
         button.btn-success#btnSubmit(type="submit") Salva
