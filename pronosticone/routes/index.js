@@ -246,7 +246,7 @@ router.get('/partita*', function(req, res){
                                                     connection.query(class_query,function(err4,rows4){
                                                         connection.release();
                                                         if(!err4) {
-                                                            res.render('compila',{
+                                                            res.render('compila2',{
                                                                 'htab' : rows4
                                                             });
                                                         }
@@ -272,7 +272,7 @@ router.get('/partita*', function(req, res){
                                                     connection.query(pron,function(err4,rows4){
                                                         connection.release();
                                                         if(!err4) {
-                                                            res.render('compila',{
+                                                            res.render('compila2',{
                                                                 'htab' : rows4
                                                             });
                                                         }
