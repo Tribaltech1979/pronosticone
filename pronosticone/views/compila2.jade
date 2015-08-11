@@ -4,7 +4,7 @@
 extends layout
 block content
     form(name='compila')
-        table
+        table.table-bordered
             thead
                 tr
                     th Squadra 1
@@ -22,6 +22,7 @@ block content
                     th Jolly
             tbody
                 - each item in htab
+                    tr
                         td= item.sq_casa
                         td= item.sq_away
                         td
@@ -46,3 +47,4 @@ block content
                             input(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
                         td
                             input(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
+        button.btn-success#btnSubmit(type="submit") Salva
