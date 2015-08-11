@@ -243,7 +243,7 @@ router.get('/partita*', function(req, res){
 
                                                     console.log('connected as id ' + connection.threadId);
 
-                                                    connection.query(class_query,function(err4,rows4){
+                                                    connection.query(pron,function(err4,rows4){
                                                         connection.release();
                                                         if(!err4) {
                                                             res.render('compila2',{
