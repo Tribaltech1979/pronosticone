@@ -7,7 +7,9 @@ block content
     script(src='/javascript/handsontable.js')
     script(src='/javascript/comptab.js')
     h1 Inserimento risultati
-    input(type='hidden',value='#{htab}')#lhtab
+    script(type='text/javascript').
+        var lhtab =!{JSON.stringify(htab)}
+    input(type='hidden',value=lhtab)#lhtab
     #insert
 block sidebar
     .widget
