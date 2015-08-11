@@ -103,6 +103,7 @@ $(document).ready(function () {
     var tab = JSON.parse($("#lhtab").val());
 
     if (tab) {
+        window.alert(tab);
         var tData = generateTab(tab, createTable);
     }
 });
