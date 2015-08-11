@@ -9,42 +9,42 @@ block content
                 tr
                     th.col-md-2 Squadra 1
                     th.col-md-2 Squadra 2
-                    th.col-md-2 Gol 1
-                    th.col-md-2 Gol 2
-                    th.col-md-2 Gol 1
-                    th.col-md-2 Gol 2
-                    th.col-md-2 Jolly
-                    th.col-md-2 Tot gol
-                    th.col-md-2 Tot gol
-                    th.col-md-2 Jolly
-                    th.col-md-2 Segno
-                    th.col-md-2 Segno
-                    th.col-md-2 Jolly
+                    th.col-md-1 Gol 1
+                    th.col-md-1 Gol 2
+                    th.col-md-1 Gol 1
+                    th.col-md-1 Gol 2
+                    th.col-md-1 Jolly
+                    th.col-md-1 Tot gol
+                    th.col-md-1 Tot gol
+                    th.col-md-1 Jolly
+                    th.col-md-1 Segno
+                    th.col-md-1 Segno
+                    th.col-md-1 Jolly
             tbody
                 - each item in htab
                     tr
                         td= item.sq_casa
                         td= item.sq_away
                         td
-                            input.col-xs-2(type="text" , name="G1-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa}")
+                            input(type="text" , name="G1-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa}")
                         td
-                            input.col-xs-2(type="text" , name="G2-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away}")
+                            input(type="text" , name="G2-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away}")
                         td
-                            input.col-xs-2(type="text" , name="G3-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa2}")
+                            input(type="text" , name="G3-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa2}")
                         td
-                            input.col-xs-2(type="text" , name="G4-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away2}")
+                            input(type="text" , name="G4-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away2}")
                         td
-                            input.col-xs-2(type="text" , name="G5-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_gol}")
+                            input(type="text" , name="G5-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_gol}")
                         td
-                            input.col-xs-2(type="text" , name="G6-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol}")
+                            input(type="text" , name="G6-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol}")
                         td
-                            input.col-xs-2(type="text" , name="G7-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol2}")
+                            input(type="text" , name="G7-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol2}")
                         td
-                            input.col-xs-2(type="text" , name="G8-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_ng}")
+                            input(type="text" , name="G8-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_ng}")
                         td
-                            input.col-xs-2(type="text" , name="G9-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno}")
+                            input(type="text" , name="G9-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno}")
                         td
-                            input.col-xs-2(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
+                            input(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
                         td
-                            input.col-xs-2(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
+                            input(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
         button.btn-success#btnSubmit(type="submit") Salva

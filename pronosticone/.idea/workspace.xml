@@ -46,8 +46,8 @@
       <file leaf-file-name="compila2.jade" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/compila2.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09497207" vertical-offset="0" max-vertical-offset="935">
-              <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.3988827" vertical-offset="0" max-vertical-offset="935">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -769,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/compila2.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09497207" vertical-offset="0" max-vertical-offset="935">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.3988827" vertical-offset="0" max-vertical-offset="935">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding />
         </state>
       </provider>
