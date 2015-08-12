@@ -6,10 +6,10 @@
 
 $(document).ready(function () {
 $.each($("input").serializeArray(), function(i, field){
-   // window.alert(field.value);
-    if (field.value == 'null'){
+   window.alert(field.val());
+    if (field.val() == null){
 
-        field.value = '';
+        field.val('');
     }
 });
 
