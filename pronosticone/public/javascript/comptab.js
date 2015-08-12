@@ -5,16 +5,18 @@
 
 
 $(document).ready(function () {
-$.each($("input").serializeArray(), function(i, field){
-   window.alert(field.val());
-    if (field.val() == null){
+    $(":input").each(function(i,el){
+       if(el.val()==null){
+           el.val('');
+       }
+        else if (el.val() == 'null'){
+           el.val('');
+       }
+    });
 
-        field.val('');
-    }
 });
 
 
-});
 
 function checkSubmit(){
 
