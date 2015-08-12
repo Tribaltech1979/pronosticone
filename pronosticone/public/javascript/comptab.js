@@ -6,13 +6,13 @@
 
 $(document).ready(function () {
     window.alert('loop');
-    $('input').each(function(i,el){
-        window.alert(el.val());
-       if(el.val()==null){
-           el.val('');
+    $('input').each(function(i){
+        window.alert(this.val());
+       if(this.val()==null){
+          this.val('');
        }
-        else if (el.val() == 'null'){
-           el.val('');
+        else if (this.val() == 'null'){
+           this.val('');
        }
     });
 
