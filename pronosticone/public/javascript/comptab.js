@@ -6,7 +6,7 @@
 
 $(document).ready(function () {
     window.alert('loop');
-    $(":input").each(function(i,el){
+    $('input').each(function(i,el){
         window.alert(el.val());
        if(el.val()==null){
            el.val('');
