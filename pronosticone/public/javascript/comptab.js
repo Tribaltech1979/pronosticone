@@ -5,8 +5,10 @@
 
 
 $(document).ready(function () {
-$.each($("input"), function(i, field){
+$.each($("input").serializeArray(), function(i, field){
+    window.alert(field.value.toString);
     if (field.value == null){
+
         field.value = '';
     }
 });
