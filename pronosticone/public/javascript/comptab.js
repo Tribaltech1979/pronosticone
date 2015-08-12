@@ -6,7 +6,7 @@
 
 $(document).ready(function () {
     window.alert('loop');
-    $('input').each(function(i){
+    $('#compila *').filter(':input').each(function(){
         window.alert(this.val());
        if(this.val()==null){
           this.val('');
