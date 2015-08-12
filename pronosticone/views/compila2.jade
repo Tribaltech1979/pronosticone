@@ -3,8 +3,10 @@
 
 extends layout
 block content
-    form(name='compila', method='post', action='/salvapron')
-        table.table-responsive.table-bordered
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/javascript/comptab.js')
+    form(name='compila', onsubmit='checkSubmit()', method='post', action='/salvapron')
+        table.table-bordered
             thead
                 tr
                     th.col-sm-2 Squadra 1
@@ -26,25 +28,25 @@ block content
                         td= item.sq_casa
                         td= item.sq_away
                         td
-                            input(type="text" , name="G1-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa}")
+                            input.G1(type="text" , name="G1-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa}")
                         td
-                            input(type="text" , name="G2-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away}")
+                            input.G2(type="text" , name="G2-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away}")
                         td
-                            input(type="text" , name="G3-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa2}")
+                            input.G3(type="text" , name="G3-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_casa2}")
                         td
-                            input(type="text" , name="G4-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away2}")
+                            input.G4(type="text" , name="G4-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_g_away2}")
                         td
-                            input(type="text" , name="G5-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_gol}")
+                            input.G5(type="text" , name="G5-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_gol}")
                         td
-                            input(type="text" , name="G6-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol}")
+                            input.G6(type="text" , name="G6-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol}")
                         td
-                            input(type="text" , name="G7-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol2}")
+                            input.G7(type="text" , name="G7-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_n_gol2}")
                         td
-                            input(type="text" , name="G8-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_ng}")
+                            input.G8(type="text" , name="G8-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_ng}")
                         td
-                            input(type="text" , name="G9-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno}")
+                            input.G9(type="text" , name="G9-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno}")
                         td
-                            input(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
+                            input.G10(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
                         td
-                            input(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
+                            input.G11(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
         button.btn-success#btnSubmit(type="submit") Salva
