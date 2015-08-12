@@ -6,8 +6,8 @@
 
 $(document).ready(function () {
 $.each($("input").serializeArray(), function(i, field){
-    window.alert(field.value.toString);
-    if (field.value == null){
+   // window.alert(field.value);
+    if (field.value == 'null'){
 
         field.value = '';
     }
