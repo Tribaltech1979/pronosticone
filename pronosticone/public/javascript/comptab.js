@@ -11,6 +11,7 @@ $(document).ready(function () {
 
 
 
+
 function checkSubmit(){
 /// colonne totalmente completate
     $(".G1,.G2,.G6,.G9").each(function(){
@@ -27,11 +28,20 @@ function checkSubmit(){
         }
     });
 
-    var regex = '(1|2|X|)';
+    var regex = '[12X]';
     $(".G9").each(function(){
         if(!$(this).val().match(regex)){
             $(this).css('background-color','red');
             return false;
         }
     });
+}
+
+function validate() {
+    if(checkSubmit()){
+        document.form.submit();
+    }
+    else{
+        window.alert('Completare il modulo');
+    }
 }

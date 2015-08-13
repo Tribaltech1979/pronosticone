@@ -49,4 +49,4 @@ block content
                             input.G10(type="text" , name="G10-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_segno2}")
                         td
                             input.G11(type="text" , name="G11-#{item.cod_torneo}-#{item.nro_giornata}-#{item.nro_partita}", value="#{item.pr_j_segno}")
-        button.btn-success#btnSubmit(type="submit") Salva
+        button.btn-success#btnSubmit(type="button", value="Salva", onclick='validate()')
