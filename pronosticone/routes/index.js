@@ -94,7 +94,7 @@ router.post('/login',function(req,res){
         connection.query(usrquery,function(err,rows){
             connection.release();
             if(!err) {
-                if(row[0]) {
+                if(rows[0]) {
                     console.log(rows[0]);
                     req.session.utente = rows[0].UTE_COD_UTENTE;
                     res.redirect('/utente');
