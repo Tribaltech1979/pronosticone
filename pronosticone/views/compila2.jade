@@ -5,7 +5,7 @@ extends layout
 block content
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
     script(src='/javascript/comptab.js')
-    form(name='compila', onsubmit='checkSubmit()', method='post', action='/salvapron')
+    form(name='compila', onsubmit='return checkSubmit()', method='post', action='/salvapron')
         table.table-bordered
             thead
                 tr
