@@ -13,18 +13,19 @@ $(document).ready(function () {
 
 
 function checkSubmit(){
+    var good = true;
 /// colonne totalmente completate
     $(".G1,.G2,.G6,.G9").each(function(){
         if(!$(this).val()){
             $(this).css('background-color','red');
-            return false;
+            good = false;
         }
     });
 /// colonne completate e con solo numeri
     $(".G1,.G2,.G6").each(function(){
         if(isNaN($(this).val())){
             $(this).css('background-color','red');
-            return false;
+            good = false;
         }
     });
 
@@ -32,9 +33,11 @@ function checkSubmit(){
     $(".G9").each(function(){
         if(!$(this).val().match(regex)){
             $(this).css('background-color','red');
-            return false;
+            good = false;
         }
     });
+
+    return good;
 }
 
 function validate() {
