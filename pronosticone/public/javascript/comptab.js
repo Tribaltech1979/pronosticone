@@ -12,12 +12,20 @@ $(document).ready(function () {
 
 
 function checkSubmit(){
+/// colonne totalmente completate
+    $(".G1,.G2,.G6,.G9").each(function(){
+        if(!$(this).val()){
+            $(this).css('background-color','red'); }
+    });
+/// colonne completate e con solo numeri
+    $(".G1,.G2,.G6").each(function(){
+        if(isNaN($(this).val())){
+            $(this).css('background-color','red'); }
+    });
 
-    if($(".G1[value='']").length ||$(".G2[value='']").length || $(".G6[value='']").length || $(".G9[value='']").length){
-        window.alert('cella vuota');
-
-        return false;
-
-    }
-
+    var regex = '(1|2|X|)';
+    $(".G9").each(function(){
+        if(!$(this).val().match(regex)){
+            $(this).css('background-color','red'); }
+    });
 }
