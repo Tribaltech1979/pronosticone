@@ -14,6 +14,8 @@ $(document).ready(function () {
 
 function checkSubmit(){
     var good = true;
+    $("input").css("background-color","white");
+    good = true;
 /// colonne totalmente completate
     $(".G1,.G2,.G6,.G9").each(function(){
         if(!$(this).val()){

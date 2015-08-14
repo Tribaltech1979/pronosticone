@@ -1,15 +1,14 @@
 extends layout
 block content
-    h1= title
-    p Welcome #{user}
+    p Benvenuto #{user}
+block mainbar
     ul
     each user, i in torneo
         li
             a(href="/torneo?tid=#{user.cod_torneo}")= user.descr_torneo
-block sidebar
-    .widget
-        h1 Partite
-        ul
-        each par, i in calendario
-            li
-                a(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")= par.sq_home + " VS " + par.sq_away
+block leftbar
+    h2 Partite
+    ul
+    each par, i in calendario
+        li
+            a(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")= par.sq_home + " VS " + par.sq_away

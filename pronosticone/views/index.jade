@@ -2,8 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-block sidebar
+  p Benvenuti al #{title}
+block leftbar
         h1 Login
         form#formAddUser(name="adduser",method="post",action="/login")
             input#inputUserName(type="text", placeholder="username", name="username")
