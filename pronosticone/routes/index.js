@@ -252,7 +252,9 @@ router.get('/partita*', function(req, res){
                                                         connection.release();
                                                         if(!err4) {
                                                             res.render('compila2',{
-                                                                'htab' : rows4
+                                                                'htab' : rows4,
+                                                                'cod_torneo' : tid,
+                                                                'nro_giorn' : ngio
                                                             });
                                                         }
                                                     });
@@ -278,7 +280,9 @@ router.get('/partita*', function(req, res){
                                                         connection.release();
                                                         if(!err4) {
                                                             res.render('compila2',{
-                                                                'htab' : rows4
+                                                                'htab' : rows4,
+                                                                'cod_torneo' : tid,
+                                                                'nro_giorn' : ngio
                                                             });
                                                         }
                                                     });
@@ -366,5 +370,17 @@ router.get('/userlist',function(req,res){
         });
     }
 );
+
+//////////////////
+//// POST SALVA PRONOSTICO
+////////////////
+router.get('/salvapron',function(req, res){
+    console.log(req.body.tab1);
+    console.log(req.body.tab2);
+    console.log(req.body.tab3);
+    console.log(req.body.tab4);
+    console.log(req.body.tab5);
+});
+
 
 module.exports = router;

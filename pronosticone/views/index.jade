@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p Benvenuti al #{title}
-block leftbar
+block mainleft
         h1 Login
         form.form-group#formAddUser(name="adduser",method="post",action="/login")
             input.form-group#inputUserName(type="text", placeholder="username", name="username")
