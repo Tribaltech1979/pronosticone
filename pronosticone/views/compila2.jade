@@ -3,7 +3,6 @@
 
 extends layout
 block content
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
     script(src='/javascript/comptab.js')
     h1 Compilazione risultati
     div.alert.alert-danger
@@ -13,19 +12,19 @@ block content
         table.table-bordered
             thead
                 tr
-                    th.col-sm-2 Squadra 1
-                    th.col-sm-2 Squadra 2
-                    th.col-sm-2 Gol 1
-                    th.col-sm-2 Gol 2
-                    th.col-sm-2 Gol 1
-                    th.col-sm-2 Gol 2
-                    th.col-sm-2 Jolly
-                    th.col-sm-2 Tot gol
-                    th.col-sm-2 Tot gol
-                    th.col-sm-2 Jolly
-                    th.col-sm-2 Segno
-                    th.col-sm-2 Segno
-                    th.col-sm-2 Jolly
+                    th Squadra 1
+                    th Squadra 2
+                    th Gol 1
+                    th Gol 2
+                    th Gol 1
+                    th Gol 2
+                    th Jolly
+                    th Tot gol
+                    th Tot gol
+                    th Jolly
+                    th Segno
+                    th Segno
+                    th Jolly
             tbody
                 - each item in htab
                     tr

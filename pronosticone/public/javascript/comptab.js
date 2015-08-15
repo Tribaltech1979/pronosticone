@@ -42,6 +42,7 @@ function checkSubmit(){
 }
 
 function validate() {
+    $(".alert").hide();
     if(checkSubmit()){
         document.getElementById("compila").submit();
     }
