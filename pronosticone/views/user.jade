@@ -11,5 +11,5 @@ block mainright
     div.list-group
     each par, i in calendario
         a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
-            h4.list-group-item-heading par.sq_home + " VS " + par.sq_away
-            p.list-group-item-text par.descr_torneo +" -- " + par.data_inizio
+            h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}
+            p.list-group-item-text #{par.descr_torneo}  --  #{par.data_inizio}

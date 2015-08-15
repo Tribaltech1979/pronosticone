@@ -374,7 +374,7 @@ router.get('/userlist',function(req,res){
 //////////////////
 //// POST SALVA PRONOSTICO
 ////////////////
-router.get('/salvapron',function(req, res){
+router.post('/salvapron',function(req, res){
     console.log(req.body.tab1);
     console.log(req.body.tab2);
     console.log(req.body.tab3);
