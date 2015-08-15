@@ -5,7 +5,7 @@ block content
   p Benvenuti al #{title}
 block leftbar
         h1 Login
-        form#formAddUser(name="adduser",method="post",action="/login")
-            input#inputUserName(type="text", placeholder="username", name="username")
-            input#inputUserPassword(type="password", placeholder="password", name="password")
-            button#btnSubmit(type="submit") Login
+        form.form-group#formAddUser(name="adduser",method="post",action="/login")
+            input.form-group#inputUserName(type="text", placeholder="username", name="username")
+            input.form-group#inputUserPassword(type="password", placeholder="password", name="password")
+            button#btnSubmit.btn.btn-default(type="submit") Login

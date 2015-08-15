@@ -5,7 +5,11 @@ extends layout
 block content
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
     script(src='/javascript/comptab.js')
-    form(name='compila', onsubmit='return checkSubmit()', method='post', action='/salvapron')
+    h1 Compilazione risultati
+    div.alert.alert-danger
+        a.close(href='#',data-dismiss='alert', aria-label='close')&times;
+        | <strong> Attenzione </strong> Bisogna correggere prima di inviare
+    form(name='compila',id="compila" , method='post', action='/salvapron')
         table.table-bordered
             thead
                 tr

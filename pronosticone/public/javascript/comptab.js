@@ -6,10 +6,9 @@
 
 $(document).ready(function () {
     $("[value='null']").val('');
+    $(".alert").hide();
 
 });
-
-
 
 
 function checkSubmit(){
@@ -44,9 +43,9 @@ function checkSubmit(){
 
 function validate() {
     if(checkSubmit()){
-        document.form.submit();
+        document.getElementById("compila").submit();
     }
     else{
-        window.alert('Completare il modulo');
+        $(".alert").show();
     }
 }
