@@ -1,11 +1,13 @@
 extends layout
 block content
-    p Benvenuto #{user}
+    h1.text-center Benvenuto #{user}
 block mainbar
-    ul
+    div.panel-group
     each user, i in torneo
-        li
-            a(href="/torneo?tid=#{user.cod_torneo}")= user.descr_torneo
+        div.panel.panel-default
+            div.panel-heading #{user.descr_torneo}
+            div.panel-body
+                a(href="/torneo?tid=#{user.cod_torneo}") Classifica
 block mainright
     h2 Partite
     div.list-group

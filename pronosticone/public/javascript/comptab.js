@@ -287,20 +287,32 @@ function invia(){
         arG11[$(this).attr("name").substr(3,2)] = $(this).val();
     });
 
+    var SarG1 = JSON.stringify(arG1);
+    var SarG2 = JSON.stringify(arG2);
+    var SarG3 = JSON.stringify(arG3);
+    var SarG4 = JSON.stringify(arG4);
+    var SarG5 = JSON.stringify(arG5);
+    var SarG6 = JSON.stringify(arG6);
+    var SarG7 = JSON.stringify(arG7);
+    var SarG8 = JSON.stringify(arG8);
+    var SarG9 = JSON.stringify(arG9);
+    var SarG10 = JSON.stringify(arG10);
+    var SarG11 = JSON.stringify(arG11);
+
     $.post("/salvapron",{
             torneo : $("input").filter("[name='torneo']").val(),
             giorn : $("input").filter("[name='giorn']").val(),
-            tab1 : arG1,
-            tab2 : arG2,
-            tab3 : arG3,
-            tab4 : arG4,
-            tab5 : arG5,
-            tab6 : arG6,
-            tab7 : arG7,
-            tab8 : arG8,
-            tab9 : arG9,
-            tab10 : arG10,
-            tab11 : arG11
+            tab1 : SarG1,
+            tab2 : SarG2,
+            tab3 : SarG3,
+            tab4 : SarG4,
+            tab5 : SarG5,
+            tab6 : SarG6,
+            tab7 : SarG7,
+            tab8 : SarG8,
+            tab9 : SarG9,
+            tab10 : SarG10,
+            tab11 : SarG11
     },
     function(data,status){
         if(status=='success'){

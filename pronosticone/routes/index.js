@@ -375,10 +375,12 @@ router.get('/userlist',function(req,res){
 //// POST SALVA PRONOSTICO
 ////////////////
 router.post('/salvapron',function(req, res){
-    console.log(req.body.tab1);
-    console.log(req.body.tab2);
-    console.log(req.body.tab3);
-    console.log(req.body.tab4);
+    console.log(req.body.torneo);
+    console.log(req.body.giorn);
+    console.log(JSON.parse(req.body.tab1));
+    console.log(JSON.parse(req.body.tab2));
+    console.log(JSON.parse(req.body.tab3));
+    console.log(JSON.parse(req.body.tab4));
     console.log(req.body.tab5);
 });
 
