@@ -389,7 +389,7 @@ router.post('/salvapron',function(req, res){
     var t9 = JSON.parse(req.body.tab9);
     var t10 = JSON.parse(req.body.tab10);
     var t11 = JSON.parse(req.body.tab11);
-    var q_pp = "SELECT * FROM PARTITE_PRONOSTICO WHERE PP_COD_TORNEO = " + tid + " AND PP_NRO_GIORNATA = "+ngio;
+    var q_pp = "SELECT * FROM Partite_Pronostico  WHERE PP_COD_TORNEO = " + tid + " AND PP_NRO_GIORNATA = "+ngio;
 
     if (req.session.id_squadra){
         pool.getConnection(function(err,connection){
@@ -408,7 +408,7 @@ router.post('/salvapron',function(req, res){
                     var index;
                     for (index = 0; index < rows.length; index++){
                         var part = rows[index].PP_COD_PARTITA;
-                        var q_up = "UPDATE PRONOSTICO SET PRO_GOL_HOME = "+ t1[part]+ ", PRO_GOL_AWAY = "+ t2[part]+", PRO_GOL_HOME2 = "+ t3[part];
+                        var q_up = "UPDATE Pronostico SET PRO_GOL_HOME = "+ t1[part]+ ", PRO_GOL_AWAY = "+ t2[part]+", PRO_GOL_HOME2 = "+ t3[part];
                         var q_up2 = ", PRO_GOL_AWAY2 = "+t4[part]+", PRO_GOL_J = "+t5[part]+", PRO_SEGNO = "+t9[part]+", PRO_SEGNO2 = "+t10[part]+", PRO_SEGNOJ = "+t11[part]+", PRO_NRO_GOL = "+t6[part]+", PRO_NRO_GOL2 = "+t7[part]+", PRO_NRO_GOL_J = " +t8[part];
                         var wh = " WHERE PRO_COD_TORNEO = " + tid + " AND PRO_COD_PARTITA = "+part +" AND PRO_COD_UTENTE = "+  req.session.id_squadra;
                         var upd = q_up + q_up2+ wh;
