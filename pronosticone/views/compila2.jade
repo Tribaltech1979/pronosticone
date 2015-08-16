@@ -8,13 +8,13 @@ block content
     input(type='hidden', name='torneo', value="#{cod_torneo}")
     input(type='hidden', name='giorn', value="#{nro_giorn}")
     div.alert.alert-danger
-        a.close(href='#',data-dismiss='alert', aria-label='close')&times;
+        a.close(href='#',data-dismiss='alert', aria-label='close') &times;
         |<strong> Attenzione </strong> Bisogna correggere prima di inviare
     div.alert.alert-success
-        a.close(href='#',data-dismiss='alert', aria-label='close')&times;
+        a.close(href='#',data-dismiss='alert', aria-label='close') &times;
         |<strong> Successo </strong> Salvataggio completo
     div.alert.alert-warning
-        a.close(href='#',data-dismiss='alert', aria-label='close')&times;
+        a.close(href='#',data-dismiss='alert', aria-label='close') &times;
         |<strong> Attenzione </strong> problemi con il salvataggio riprovare
 block mainbar
     form(name='compila',id="compila" , method='post', action='/salvapron')
