@@ -375,13 +375,58 @@ router.get('/userlist',function(req,res){
 //// POST SALVA PRONOSTICO
 ////////////////
 router.post('/salvapron',function(req, res){
-    console.log(req.body.torneo);
-    console.log(req.body.giorn);
-    console.log(JSON.parse(req.body.tab1));
-    console.log(JSON.parse(req.body.tab2));
-    console.log(JSON.parse(req.body.tab3));
-    console.log(JSON.parse(req.body.tab4));
-    console.log(req.body.tab5);
+    var pool = req.pool;
+    var tid = req.body.torneo;
+    var ngio = req.body.giorn;
+    var t1 = JSON.parse(req.body.tab1);
+    var t2 = JSON.parse(req.body.tab2);
+    var t3 = JSON.parse(req.body.tab3);
+    var t4 = JSON.parse(req.body.tab4);
+    var t5 = JSON.parse(req.body.tab5);
+    var t6 = JSON.parse(req.body.tab6);
+    var t7 = JSON.parse(req.body.tab7);
+    var t8 = JSON.parse(req.body.tab8);
+    var t9 = JSON.parse(req.body.tab9);
+    var t10 = JSON.parse(req.body.tab10);
+    var t11 = JSON.parse(req.body.tab11);
+    var q_pp = "SELECT * FROM PARTITE_PRONOSTICO WHERE PP_COD_TORNEO = " + tid + " AND PP_NRO_GIORNATA = "+ngio;
+
+    if (req.session.id_squadra){
+        pool.getConnection(function(err,connection){
+            if (err) {
+                connection.release();
+                res.json({"code" : 100, "status" : "Error in connection database"});
+                return;
+            }
+
+            console.log('connected as id ' + connection.threadId);
+
+            connection.query(q_pp,function(err,rows){
+                connection.release();
+                if(!err) {
+                    var index;
+                    for (index = 0; index < rows.length; index++){
+                        var part = rows[index].PP_COD_PARTITA;
+                        var q_up = "UPDATE PRONOSTICO SET PRO_GOL_HOME = "+ t1[part]+ ", PRO_GOL_AWAY = "+ t2[part]+", PRO_GOL_HOME2 = "+ t3[part];
+                        var q_up2 = ", PRO_GOL_AWAY2 = "+t4[part]+", PRO_GOL_J = "+t5[part]+", PRO_SEGNO = "+t9[part]+", PRO_SEGNO2 = "+t10[part]+", PRO_SEGNOJ = "+t11[part]+", PRO_NRO_GOL = "+t6[part]+", PRO_NRO_GOL2 = "+t7[part]+", PRO_NRO_GOL_J = " +t8[part];
+                        var wh = " WHERE PRO_COD_TORNEO = " + tid + " AND PRO_COD_PARTITA = "+part +" AND PRO_COD_UTENTE = "+  req.session.id_squadra;
+                        var upd = q_up + q_up2+ wh;
+
+                        console.log(upd);
+                    }
+                }
+            });
+
+            connection.on('error', function(err) {
+                res.json({"code" : 100, "status" : "Error in connection database"});
+
+            });
+        });
+    }
+
+
+
+    res.send('OK');
 });
 
 

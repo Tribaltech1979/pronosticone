@@ -223,68 +223,68 @@ function invia(){
 
     arG1={};
     $(".G1").each(function(){
-        arG1[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG1[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     arG2={};
     $(".G2").each(function(){
-        arG2[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG2[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     arG3={};
     $(".G3").each(function(){
-        arG3[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG3[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     arG4={};
     $(".G4").each(function(){
-        arG4[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG4[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     arG5={};
     $(".G5").each(function(){
-        arG5[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG5[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     arG6={};
     $(".G6").each(function(){
-        arG6[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG6[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     arG7={};
     $(".G7").each(function(){
-        arG7[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG7[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     arG8={};
     $(".G8").each(function(){
-        arG8[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG8[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     var reg = "[X]";
     arG9={};
     $(".G9").each(function(){
         if($(this).val().match(reg)){
-            arG9[$(this).attr("name").substr(3, 2)]  = 0;
+            arG9[$(this).attr("name").substr(3, 6)]  = 0;
         }
         else {
-            arG9[$(this).attr("name").substr(3, 2)] = $(this).val();
+            arG9[$(this).attr("name").substr(3, 6)] = $(this).val();
         }
     });
 
     arG10={};
     $(".G10").each(function(){
         if($(this).val().match(reg)){
-            arG10[$(this).attr("name").substr(3, 2)]  = 0;
+            arG10[$(this).attr("name").substr(3, 6)]  = 0;
         }
         else {
-            arG10[$(this).attr("name").substr(3, 2)] = $(this).val();
+            arG10[$(this).attr("name").substr(3, 6)] = $(this).val();
         }
     });
 
     arG11={};
     $(".G11").each(function(){
-        arG11[$(this).attr("name").substr(3,2)] = $(this).val();
+        arG11[$(this).attr("name").substr(3,6)] = $(this).val();
     });
 
     var SarG1 = JSON.stringify(arG1);
