@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68136716" vertical-offset="6352" max-vertical-offset="7480">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6352" max-vertical-offset="7480">
               <caret line="410" column="53" selection-start-line="410" selection-start-column="53" selection-end-line="410" selection-end-column="53" />
               <folding />
             </state>
@@ -63,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comptab.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="comptab.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascript/comptab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4775" max-vertical-offset="5797">
-              <caret line="286" column="45" selection-start-line="286" selection-start-column="45" selection-end-line="286" selection-end-column="45" />
+            <state vertical-scroll-proportion="-1.6445652" vertical-offset="5287" max-vertical-offset="6375">
+              <caret line="222" column="21" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -148,10 +148,10 @@
         <option value="$PROJECT_DIR$/views/torneo.jade" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/views/index.jade" />
-        <option value="$PROJECT_DIR$/public/javascript/comptab.js" />
         <option value="$PROJECT_DIR$/views/user.jade" />
         <option value="$PROJECT_DIR$/views/compila2.jade" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/javascript/comptab.js" />
       </list>
     </option>
   </component>
@@ -755,14 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/comptab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4775" max-vertical-offset="5797">
-          <caret line="286" column="45" selection-start-line="286" selection-start-column="45" selection-end-line="286" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/compila2.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.88" vertical-offset="0" max-vertical-offset="1224">
@@ -789,8 +781,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68136716" vertical-offset="6352" max-vertical-offset="7480">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6352" max-vertical-offset="7480">
           <caret line="410" column="53" selection-start-line="410" selection-start-column="53" selection-end-line="410" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/comptab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6445652" vertical-offset="5287" max-vertical-offset="6375">
+          <caret line="222" column="21" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
           <folding />
         </state>
       </provider>

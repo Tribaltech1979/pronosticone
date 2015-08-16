@@ -220,7 +220,7 @@ function checkSubmit(){
 
 function invia(){
     var arG1, arG2, arG3, arG4, arG5, arG6, arG7, arG8, arG9, arG10, arG11;
-
+ /// RISULTATO ESATTO
     arG1={};
     $(".G1").each(function(){
         arG1[$(this).attr("name").substr(3,6)] = $(this).val();
@@ -230,37 +230,62 @@ function invia(){
     $(".G2").each(function(){
         arG2[$(this).attr("name").substr(3,6)] = $(this).val();
     });
-
+/// DOPPIE
     arG3={};
     $(".G3").each(function(){
-        arG3[$(this).attr("name").substr(3,6)] = $(this).val();
+        if ($(this).val()) {
+            arG3[$(this).attr("name").substr(3, 6)] = $(this).val();
+        }
+        else {
+            arG3[$(this).attr("name").substr(3, 6)] = 'null';
+        }
     });
 
     arG4={};
     $(".G4").each(function(){
-        arG4[$(this).attr("name").substr(3,6)] = $(this).val();
+        if ($(this).val()) {
+            arG4[$(this).attr("name").substr(3, 6)] = $(this).val();
+        }
+        else {
+            arG4[$(this).attr("name").substr(3, 6)] = 'null';
+        }
     });
-
+// JOLLY
     arG5={};
     $(".G5").each(function(){
-        arG5[$(this).attr("name").substr(3,6)] = $(this).val();
+        if ($(this).val()) {
+            arG5[$(this).attr("name").substr(3, 6)] = "'" + $(this).val() + "'";
+        }
+        else{
+            arG5[$(this).attr("name").substr(3,6)] = 'null';
+        }
     });
-
+/// TOTALE GOL
     arG6={};
     $(".G6").each(function(){
         arG6[$(this).attr("name").substr(3,6)] = $(this).val();
     });
-
+// DOPPIA
     arG7={};
     $(".G7").each(function(){
-        arG7[$(this).attr("name").substr(3,6)] = $(this).val();
+        if($(this).val()) {
+            arG7[$(this).attr("name").substr(3, 6)] = $(this).val();
+        }
+        else{
+            arG7[$(this).attr("name").substr(3, 6)] ='null';
+        }
     });
-
+/// JOLLY
     arG8={};
     $(".G8").each(function(){
-        arG8[$(this).attr("name").substr(3,6)] = $(this).val();
+        if ($(this).val()) {
+            arG8[$(this).attr("name").substr(3, 6)] = "'" + $(this).val() + "'";
+        }
+        else{
+            arG8[$(this).attr("name").substr(3,6)] = 'null';
+        }
     });
-
+///SEGNO
     var reg = "[X]";
     arG9={};
     $(".G9").each(function(){
@@ -271,20 +296,29 @@ function invia(){
             arG9[$(this).attr("name").substr(3, 6)] = $(this).val();
         }
     });
-
+//DOPPIA
     arG10={};
     $(".G10").each(function(){
         if($(this).val().match(reg)){
             arG10[$(this).attr("name").substr(3, 6)]  = 0;
         }
-        else {
+        else if($(this).val()){
             arG10[$(this).attr("name").substr(3, 6)] = $(this).val();
+        }
+        else{
+            arG10[$(this).attr("name").substr(3, 6)] = 'null';
         }
     });
 
+    //// JOLLY
     arG11={};
     $(".G11").each(function(){
-        arG11[$(this).attr("name").substr(3,6)] = $(this).val();
+        if ($(this).val()){
+            arG11[$(this).attr("name").substr(3,6)] = "'"+$(this).val()+"'";
+        }
+        else{
+            arG11[$(this).attr("name").substr(3,6)] = 'null';
+        }
     });
 
     var SarG1 = JSON.stringify(arG1);
