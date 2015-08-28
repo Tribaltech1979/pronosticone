@@ -406,7 +406,7 @@ router.post('/salvapron',function(req, res){
             connection.query(q_pp,function(err,rows){
                 connection.release();
                 if(!err) {
-                    var upd_q = null;
+                    var upd_q = '';
                     var index;
                     for (index = 0; index < rows.length; index++){
                         var part = rows[index].PP_COD_PARTITA;
