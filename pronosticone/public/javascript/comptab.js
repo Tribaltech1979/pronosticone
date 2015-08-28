@@ -300,14 +300,14 @@ function invia(){
     arG10={};
     $(".G10").each(function(){
         if(!$(this).val()){
-            arG10[$(this).attr("name").substr(3, 6)] = 'null';
+            arG10[$(this).attr("name").substr(4, 6)] = 'null';
         }
         else {
             if($(this).val().match(reg)){
-                arG10[$(this).attr("name").substr(3, 6)]  = 0;
+                arG10[$(this).attr("name").substr(4, 6)]  = 0;
             }
             else{
-                arG10[$(this).attr("name").substr(3, 6)] = $(this).val();
+                arG10[$(this).attr("name").substr(4, 6)] = $(this).val();
             }
         }
 
@@ -317,10 +317,10 @@ function invia(){
     arG11={};
     $(".G11").each(function(){
         if ($(this).val()){
-            arG11[$(this).attr("name").substr(3,6)] = "'"+$(this).val()+"'";
+            arG11[$(this).attr("name").substr(4,6)] = "'"+$(this).val()+"'";
         }
         else{
-            arG11[$(this).attr("name").substr(3,6)] = 'null';
+            arG11[$(this).attr("name").substr(4,6)] = 'null';
         }
     });
 
