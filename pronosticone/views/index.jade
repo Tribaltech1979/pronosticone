@@ -1,6 +1,9 @@
 extends layout
 
 block content
+  div.alert.alert-info
+    a.close(href='#',data-dismiss='alert', aria-label='close') &times;
+    | <strong> Attenzione </strong> questo sito utilizza i cookies. Continuando si da' il consenso.
   h1= title
   p Benvenuti al #{title}
 block mainleft

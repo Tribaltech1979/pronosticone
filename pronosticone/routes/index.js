@@ -404,7 +404,7 @@ router.post('/salvapron',function(req, res){
             connection.query(q_pp,function(err,rows){
                 connection.release();
                 if(!err) {
-                    console.log(rows);
+                    var upd_q = null;
                     var index;
                     for (index = 0; index < rows.length; index++){
                         var part = rows[index].PP_COD_PARTITA;
@@ -414,7 +414,21 @@ router.post('/salvapron',function(req, res){
                         var upd = q_up + q_up2+ wh;
 
                         console.log(upd);
+                        upd_q = upd_q + upd + ";"
                     }
+                    pool.getConnection(function(err,connection){
+                        if (err) {
+                            connection.release();
+                            res.json({"code" : 100, "status" : "Error in connection database"});
+                            return;
+                        }
+                        connection.query(upd_q,function(err2) {
+                            connection.release();
+                            if (!err2) {
+                                res.send('OK');
+                            }
+                        });
+                    });
                 }
             });
 
@@ -427,7 +441,7 @@ router.post('/salvapron',function(req, res){
 
 
 
-    res.send('OK');
+
 });
 
 

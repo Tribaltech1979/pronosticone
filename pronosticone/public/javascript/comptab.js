@@ -299,15 +299,18 @@ function invia(){
 //DOPPIA
     arG10={};
     $(".G10").each(function(){
-        if($(this).val().match(reg)){
-            arG10[$(this).attr("name").substr(3, 6)]  = 0;
-        }
-        else if($(this).val()){
-            arG10[$(this).attr("name").substr(3, 6)] = $(this).val();
-        }
-        else{
+        if(!$(this).val()){
             arG10[$(this).attr("name").substr(3, 6)] = 'null';
         }
+        else {
+            if($(this).val().match(reg)){
+                arG10[$(this).attr("name").substr(3, 6)]  = 0;
+            }
+            else{
+                arG10[$(this).attr("name").substr(3, 6)] = $(this).val();
+            }
+        }
+
     });
 
     //// JOLLY

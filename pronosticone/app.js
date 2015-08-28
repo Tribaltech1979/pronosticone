@@ -34,7 +34,9 @@ var pool = mysql.createPool({
     user : 'pron',
     password :'pron',
     database : 'pronosticone',
-    debug : false
+    debug : false,
+    dateStrings :true,
+    multipleStatements : true
 });
 
 app.use(function(req,res,next){
