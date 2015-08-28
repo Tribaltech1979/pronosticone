@@ -36,7 +36,7 @@ router.get('/utente',function(req,res){
                     var tor_query = "select * from v_torneo where cod_squadra = "+rows[0].id_squadra;
                     connection.query(tor_query,function(err2,rows2) {
                         if(!err2) {
-                            var cal_query = "select * from v_global_calen where cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra ;
+                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where dt_inizio > sysdate() and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio";
                             connection.query(cal_query, function (err3, rows3) {
                                 connection.release();
                                 if (!err3) {
@@ -137,7 +137,7 @@ router.get('/torneo*', function(req, res){
         console.log('connected as id ' + connection.threadId);
 
         connection.query(class_query,function(err,rows){
-            connection.release();
+
             if(!err) {
                 var admin = false;
                 if(req.session.utente){
@@ -146,11 +146,27 @@ router.get('/torneo*', function(req, res){
                     }
                 }
 
-                res.render('ttorneo',{
-                    "title" : rows[0].TOR_DESCR_TORNEO,
-                    "tid" : tid,
-                    "admin" : admin
-                });
+                if(req.session.id_squadra){
+                    var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = "+ tid+" and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra +" ) order by dt_inizio";
+                    connection.query(cal_query,function(err2,rows2){
+                        connection.release();
+                        res.render('ttorneo',{
+                            "title" : rows[0].TOR_DESCR_TORNEO,
+                            "tid" : tid,
+                            "admin" : admin,
+                            "calen" : rows2
+                        });
+                    });
+                }
+                else{
+                    connection.release();
+                    res.render('ttorneo',{
+                        "title" : rows[0].TOR_DESCR_TORNEO,
+                        "tid" : tid,
+                        "admin" : admin
+                    });
+                }
+
             }
         });
 
@@ -391,7 +407,7 @@ router.post('/salvapron',function(req, res){
     var t11 = JSON.parse(req.body.tab11);
     var q_pp = "SELECT * FROM Partite_Pronostico  WHERE PP_COD_TORNEO = " + tid + " AND PP_NRO_GIORNATA = "+ngio;
 
-    console.log(t10);
+   // console.log(t10);
 
     if (req.session.id_squadra){
         pool.getConnection(function(err,connection){
@@ -416,7 +432,7 @@ router.post('/salvapron',function(req, res){
                         var upd = q_up + q_up2+ wh;
                         upd_q = upd_q + upd + ";"
                     }
-                    console.log(upd_q);
+                   // console.log(upd_q);
                     pool.getConnection(function(err,connection){
                         if (err) {
                             connection.release();

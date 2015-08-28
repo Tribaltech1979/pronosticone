@@ -11,12 +11,12 @@ $(document).ready(function () {
     $("input").css('width',$("img").width()/13+"px")
     $(".alert").hide();
 
-    $(".G9.G10").each(function(){
+    $(".G9").each(function(){
         if($(this).val()== 0){
             $(this).val('X');
         }
     });
-
+    $(".G10").each(function(){if($(this).val() && $(this).val()== 0){$(this).val('X');}})
 });
 
 

@@ -6,7 +6,7 @@ block content
     | <strong> Attenzione </strong> questo sito utilizza i cookies. Continuando si da' il consenso.
   h1= title
   p Benvenuti al #{title}
-block mainleft
+block mainright
         h1 Login
         form.form-group#formAddUser(name="adduser",method="post",action="/login")
             input.form-group#inputUserName(type="text", placeholder="username", name="username")

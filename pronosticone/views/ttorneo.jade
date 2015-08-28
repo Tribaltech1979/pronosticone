@@ -7,7 +7,18 @@ block content
     script(src='/javascript/tabelle.js')
     h1= title
     h4(id="tid") #{tid}
+    if admin
+        div.btn-group
+            button.btn.btn-default(href="/ristorneo?tid=#{tid}") Inserisci risultato
+            button.btn.btn-default(href="/elabtorneo?tid=#{tid}") Elabora risultato
 block mainbar
     p Classifica
     #classificat
-block leftbar
+block mainright
+    h2 Partite
+    div.list-group
+    each par, i in calen
+        a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
+            h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}
+            p.list-group-item-text #{par.descr_torneo}  --  #{par.inizio}
+block mainleft
