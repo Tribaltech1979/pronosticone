@@ -140,11 +140,12 @@ router.get('/torneo*', function(req, res){
 
             if(!err) {
                 var admin = false;
-                if(req.session.utente){
-                    if(req.session.utente == rows[0].TOR_COD_MASTER){
+
+                if(req.session.utente == rows[0].TOR_COD_MASTER ){
                         admin = true;
                     }
-                }
+
+                console.log(admin);
 
                 if(req.session.id_squadra){
                     var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = "+ tid+" and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra +" ) order by dt_inizio";
