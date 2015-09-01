@@ -9,8 +9,8 @@ block content
     h4(id="tid") #{tid}
     if admin
         div.btn-group
-            button.btn.btn-default(href="/ristorneo?tid=#{tid}") Inserisci risultato
-            button.btn.btn-default(href="/elabtorneo?tid=#{tid}") Elabora risultato
+            button.btn.btn-default(action="/ristorneo?tid=#{tid}") Inserisci risultato
+            button.btn.btn-default(action="/elabtorneo?tid=#{tid}") Elabora risultato
 block mainbar
     p Classifica
     #classificat
