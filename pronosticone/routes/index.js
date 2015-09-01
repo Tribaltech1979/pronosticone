@@ -145,7 +145,7 @@ router.get('/torneo*', function(req, res){
                         admin = true;
                     }
 
-                console.log(admin);
+                //console.log(admin);
 
                 if(req.session.id_squadra){
                     var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = "+ tid+" and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra +" ) order by dt_inizio";
@@ -553,11 +553,11 @@ router.post('/salvaris',function(req,res){
 
 });
 
-router.get('/elabtorneo*', function(req, res, next) {
+router.get('/elabtorneo*', function(req, res) {
     var pool = req.pool;
     var tid = req.query.tid;
 
-    var check1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+"AND nro_giornata = ( SELECT min(CAL_NRO_GIORNATA) from Calendario where CAL_COD_TORNEO = "+ tid+" and CAL_PUNTI_HOME is null ) ";
+    var check1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+" AND nro_giornata = ( SELECT min(CAL_NRO_GIORNATA) from Calendario where CAL_COD_TORNEO = "+ tid+" AND CAL_PUNTI_HOME is null ) ";
 
     pool.getConnection(function(err,connection){
         if (err) {
