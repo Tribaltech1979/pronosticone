@@ -94,6 +94,97 @@ router.post('/salvaris',function(req,res){
 });
 
 router.get('/elabtorneo*', function(req, res, next) {
+    var pool = req.pool;
+    var tid = req.query.tid;
+
+    var check1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+"AND nro_giornata = ( SELECT min(CAL_NRO_GIORNATA) from Calendario where CAL_COD_TORNEO = "+ tid+" and CAL_PUNTI_HOME is null ) ";
+
+    pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;
+        }
+
+        console.log('connected as id ' + connection.threadId);
+
+        connection.query(check1,function(err,rows){
+            connection.release();
+            if(!err) {
+                res.render('elabtorneo',{
+                    "list" : rows
+                });
+            }
+        });
+
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+    });
+
+});
+
+router.post('/salvatorneo', function(req,res,next){
+    var pool = req.pool;
+    var tid = req.body.torneo;
+    var ngio = req.body.giorn;
+
+    var q1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+"AND nro_giornata = "+ngio;
+
+    pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;
+        }
+
+        console.log('connected as id ' + connection.threadId);
+
+        connection.query(q1,function(err,rows){
+          connection.release();
+            if(!err) {
+                var upd_q = '';
+                var index;
+                for (index = 0; index < rows.length; index++){
+                    var upd = "UPDATE Calendario set CAL_PUNTI_HOME = "+rows[index].punti_casa+" , CAL_PUNTI_AWAY = " +rows[index].punti_away+" , CAL_GOL_HOME = "+rows[index].gol_casa+" , CAL_GOL_AWAY = "+rows[index].gol_away;
+                    var wh = " WHERE CAL_COD_TORNEO = "+tid+" AND CAL_NRO_GIORNATA = "+ngio+" AND CAL_NRO_PARTITA = "+ rows[index].nro_partita+" ;";
+                    var gir = upd +wh ;
+
+                    upd_q = upd_q + gir;
+
+                }
+
+                pool.getConnection(function(err,connection){
+                    if (err) {
+                        connection.release();
+                        res.json({"code" : 100, "status" : "Error in connection database"});
+                        return;
+                    }
+
+                    console.log('connected as id ' + connection.threadId);
+
+                    connection.query(upd_q,function(err,rows){
+                        connection.release();
+                        if(!err) {
+                            res.send('OK');
+                        }
+                    });
+
+                    connection.on('error', function(err) {
+                        res.json({"code" : 100, "status" : "Error in connection database"});
+
+                    });
+                });
+            }
+
+        });
+
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+    });
 
 
 });
