@@ -8,15 +8,16 @@ block content
     h1= title
     h4(id="tid") #{tid}
     if admin
+    		h4 Menu amministrazione torneo
         div.btn-group
-            button.btn.btn-default(action="/ristorneo?tid=#{tid}") Inserisci risultato
-            button.btn.btn-default(action="/elabtorneo?tid=#{tid}") Elabora risultato
+            a.btn.btn-default(href="/ristorneo?tid=#{tid}") Inserisci risultato
+            a.btn.btn-default(href="/elabtorneo?tid=#{tid}") Elabora risultato
 block mainbar
     p Classifica
     #classificat
 block mainright
     h2 Partite
-    div.list-group
+    div.list-group(style="max-height: 300px; overflow-y:scroll;")
     each par, i in calen
         a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
             h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}

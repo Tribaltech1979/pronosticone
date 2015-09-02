@@ -15,6 +15,74 @@ router.get('/login', function(req,res){
     }
     else {res.render('login');}
 });
+///// CAMBIO PASSWORD
+router.get('/cambiop',function(req,res){
+	if(req.session.utente){
+			res.render('cambiopass');
+		}
+		else{
+			res.redirect('/login');
+			}
+
+)};
+router.post('/cambiop',function(req,res){
+		var passo = req.body.passold;
+		var passn = req.body.passnew;
+		var pool = req.pool;
+		
+		    var usrquery =  "select UTE_COD_UTENTE from Utenti where UTE_COD_UTENTE = " + req.session.utente + " and UTE_PASS = '" + passo+"'" ;
+
+    pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;
+        }
+
+        console.log('connected as id ' + connection.threadId);
+
+        connection.query(usrquery,function(err,rows){
+            connection.release();
+            if(!err) {
+								var updquery = "UPDATE Utenti set UTE_PASS = '"+passn+"' where UTE_COD_UTENTE = "+req.session.utente" ;";
+								pool.getConnection(function(err,connection){
+					            if (err) {
+					                connection.release();
+					                res.json({"code" : 100, "status" : "Error in connection database"});
+					                return;
+					            }
+					
+					            console.log('connected as id ' + connection.threadId);
+					
+					            connection.query(updquery,function(err,rows){
+					                connection.release();
+					                if(!err) {
+															res.send(200);
+					                }
+					                else{
+					                		res.send(500);
+					                	}
+					            });
+					
+					            connection.on('error', function(err) {
+					                res.json({"code" : 100, "status" : "Error in connection database"});
+					
+					            });
+					        });
+            }
+            else{
+                res.send(400);
+            }
+        });
+
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+    });
+		
+		
+	});
 //// UTENTE
 router.get('/utente',function(req,res){
     if(req.session.utente){

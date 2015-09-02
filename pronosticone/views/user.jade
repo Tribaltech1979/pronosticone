@@ -3,7 +3,7 @@ block content
     h1.text-left Benvenuto #{user}
 block mainbar
     h2.text-left I tuoi tornei
-    div.panel-group
+    div.panel-group(style="max-height: 300px; overflow-y:scroll;")
     each user, i in torneo
         div.panel.panel-default
             div.panel-heading #{user.descr_torneo}
@@ -11,7 +11,7 @@ block mainbar
                 a(href="/torneo?tid=#{user.cod_torneo}") Classifica
 block mainright
     h2 Partite
-    div.list-group.slist
+    div.list-group(style="max-height: 300px; overflow-y:scroll;")
     each par, i in calendario
         a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
             h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}
