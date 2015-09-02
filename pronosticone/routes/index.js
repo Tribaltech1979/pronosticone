@@ -20,11 +20,11 @@ router.get('/cambiop',function(req,res){
 	if(req.session.utente){
 			res.render('cambiopass');
 		}
-		else{
-			res.redirect('/login');
-			}
+	else{res.redirect('/login');}
 
-)};
+});
+
+
 router.post('/cambiop',function(req,res){
 		var passo = req.body.passold;
 		var passn = req.body.passnew;
@@ -44,7 +44,7 @@ router.post('/cambiop',function(req,res){
         connection.query(usrquery,function(err,rows){
             connection.release();
             if(!err) {
-								var updquery = "UPDATE Utenti set UTE_PASS = '"+passn+"' where UTE_COD_UTENTE = "+req.session.utente" ;";
+								var updquery = "UPDATE Utenti set UTE_PASS = '"+passn+"' where UTE_COD_UTENTE = "+req.session.utente+" ;";
 								pool.getConnection(function(err,connection){
 					            if (err) {
 					                connection.release();
