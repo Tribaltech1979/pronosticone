@@ -106,16 +106,27 @@ router.get('/utente',function(req,res){
                         if(!err2) {
                             var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where dt_inizio > sysdate() and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio";
                             connection.query(cal_query, function (err3, rows3) {
-                                connection.release();
+
                                 if (!err3) {
-                                    console.log('connessione di ' + rows[0].nome_squadra);
-                                    req.session.id_squadra = rows[0].id_squadra;
-                                    res.render('user', {"user": rows[0].nome_squadra,
-                                        title: rows[0].nome_squadra + ' Homepage',
-                                        "torneo": rows2 ,
-                                        "calendario" : rows3
+                                    var cal_past = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where punti_home is not null and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio desc";
+                                    connection.query(cal_past,function(err4,rows4) {
+                                        connection.release();
+                                        if(!err4) {
+                                            console.log('connessione di ' + rows[0].nome_squadra);
+                                            req.session.id_squadra = rows[0].id_squadra;
+                                            res.render('user', {"user": rows[0].nome_squadra,
+                                                title: rows[0].nome_squadra + ' Homepage',
+                                                "torneo": rows2,
+                                                "calendario": rows3,
+                                                "pastcal":rows4
+                                            });
+                                        }
                                     });
 
+                                }
+                                else{
+                                    connection.release();
+                                    res.redirect('/login');
                                 }
                             });
                         }
@@ -194,6 +205,7 @@ router.get('/torneo*', function(req, res){
     var tid = req.query.tid;
 
     var class_query = 'select * from Torneo where TOR_COD_TORNEO = ' + tid ;
+    var past = "select * from v_global_calen where cod_torneo = "+tid+" and nro_giornata = (select max(CAL_NRO_GIORNATA) from Calendario where Calendario.CAL_COD_TORNEO = "+tid+" and CAL_PUNTI_HOME is not null)";
 
     pool.getConnection(function(err,connection){
         if (err) {
@@ -213,30 +225,35 @@ router.get('/torneo*', function(req, res){
                         admin = true;
                     }
 
-                //console.log(admin);
+                connection.query(past,function(err3,rows3){
 
-                if(req.session.id_squadra){
-                    var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = "+ tid+" and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra +" ) order by dt_inizio";
-                    connection.query(cal_query,function(err2,rows2){
-                        connection.release();
-                        res.render('ttorneo',{
-                            "title" : rows[0].TOR_DESCR_TORNEO,
-                            "tid" : tid,
-                            "admin" : admin,
-                            "calen" : rows2
-                        });
-                    });
-                }
-                else{
-                    connection.release();
-                    res.render('ttorneo',{
-                        "title" : rows[0].TOR_DESCR_TORNEO,
-                        "tid" : tid,
-                        "admin" : admin
-                    });
-                }
 
+                        if (req.session.id_squadra) {
+                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
+                            connection.query(cal_query, function (err2, rows2) {
+                                connection.release();
+                                res.render('ttorneo', {
+                                    "title": rows[0].TOR_DESCR_TORNEO,
+                                    "tid": tid,
+                                    "admin": admin,
+                                    "calen": rows2,
+                                    "pcalen":rows3
+                                });
+                            });
+                        }
+                        else {
+                            connection.release();
+                            res.render('ttorneo', {
+                                "title": rows[0].TOR_DESCR_TORNEO,
+                                "tid": tid,
+                                "admin": admin,
+                                "pcalen":rows3
+                            });
+                        }
+
+                });
             }
+
         });
 
         connection.on('error', function(err) {
