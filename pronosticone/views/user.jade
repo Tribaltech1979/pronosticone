@@ -1,6 +1,8 @@
 extends layout
 block content
     h1.text-left Benvenuto #{user}
+    div.btn-group
+    		a.btn.btn-default(href="/cambiop") Cambio Password
 block mainbar
     h2.text-left I tuoi tornei
     div.panel-group(style="max-height: 300px; overflow-y:scroll;")

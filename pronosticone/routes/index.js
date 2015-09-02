@@ -394,6 +394,12 @@ router.get('/partita*', function(req, res){
                             }
                             else{
  //////////////////////////////////// SIAMO DOPO L'INIZIO
+ /////////////////////////////////////// VERIFICO CHE SIA STATO GIA'CALCOLATO IL RISULTATO 
+ 
+ ////////////////////////////////////////////PRENDO I RISULTATI E LI MANDO A VIDEO
+ 
+ 
+ //////////////////////////////////////////// ALTRIMENTI PRENDO I DATI INSERITI E LI METTO A VIDEO
                                 res.render('risultato');
                             }
                         }
