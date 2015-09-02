@@ -6,7 +6,7 @@ block content
     script(src='/javascript/handsontable.js')
     script(src='/javascript/tabelle.js')
     h1= title
-    h4(id="tid") #{tid}
+    input(type='hidden', name='torneo', value="#{tid}")
     if admin
         h4 Menu amministrazione torneo
         div.btn-group
@@ -16,8 +16,8 @@ block mainbar
     p Classifica
     #classificat
 block mainright
-    h2 Partite
-    div.list-group(style="max-height: 300px; overflow-y:scroll;")
+    h2 Partite future
+    div.list-group(style="max-height:300px;overflow-y:scroll;")
     each par, i in calen
         a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
             h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}

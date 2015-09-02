@@ -1,3 +1,8 @@
+$(document).ready(function () {
+    $(".alert").hide();
+
+})
+
 function checkSubmit(){
 	  $(".alert").hide();
     var good = true;
@@ -23,8 +28,8 @@ function checkSubmit(){
 
 function invia(){
 		$.post("/cambiop",{
-			passold = $(".G1").val(),
-			passnew = $(".G2").val()
+			passold : $(".G1").val(),
+			passnew : $(".G2").val()
 			},
 			function(data,status){        if(status=='success'){
             $(".alert-success").show();

@@ -81,7 +81,7 @@ function createTable(tableData, colHeaders, colArray) {
 
 
 $(document).ready(function () {
-    var itid = $('#tid').text();
+    var itid = $("input").filter("[name='torneo']").val();
 
     if (itid) {
         var tData = getMyForm(itid, createTable);
