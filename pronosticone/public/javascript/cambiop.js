@@ -23,7 +23,7 @@ function checkSubmit(){
    		good = false;
    	}
     
-    
+    return good;
 	}
 
 function invia(){
