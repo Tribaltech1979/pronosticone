@@ -659,12 +659,12 @@ router.get('/elabtorneo*', function(req, res) {
 
 });
 
-router.post('/salvatorneo', function(req,res,next){
+router.post('/salvatorneo', function(req,res){
     var pool = req.pool;
     var tid = req.body.torneo;
     var ngio = req.body.giorn;
 
-    var q1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+"AND nro_giornata = "+ngio;
+    var q1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+" AND nro_giornata = "+ngio;
 
     pool.getConnection(function(err,connection){
         if (err) {

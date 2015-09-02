@@ -1,6 +1,12 @@
 /**
  * Created by Daniele on 31/08/2015.
  */
+
+$(document).ready(function () {
+    $(".alert").hide();
+
+});
+
 function save(){
 
     $.post("/salvatorneo", {
