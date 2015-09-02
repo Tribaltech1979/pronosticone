@@ -16,7 +16,7 @@ block mainleft
     div.list-group(style="max-height:300px;overflow-y:scroll;")
         each past in pastcal
             a.list-group-item(href="/partita?tid=#{past.cod_torneo}&ngio=#{past.nro_giornata}&npar=#{past.nro_partita}")
-                h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away}  #{past.gol_home} - #{past.gol_away}
+                h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away}     #{past.gol_home} - #{past.gol_away}
                 p.list-group-item-text #{past.descr_torneo}  --  #{past.punti_home}/#{past.punti_away}
 block mainright
     h2 Partite Future
