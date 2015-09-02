@@ -18,8 +18,8 @@ block mainbar
 block mainright
     h2 Partite future
     div.list-group(style="max-height:300px;overflow-y:scroll;")
-    each par, i in calen
-        a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
-            h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}
-            p.list-group-item-text #{par.descr_torneo}  --  #{par.inizio}
+        each par, i in calen
+            a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
+                h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}
+                p.list-group-item-text #{par.descr_torneo}  --  #{par.inizio}
 block mainleft
