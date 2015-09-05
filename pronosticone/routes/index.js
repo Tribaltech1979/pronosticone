@@ -411,13 +411,47 @@ router.get('/partita*', function(req, res){
                             }
                             else{
  //////////////////////////////////// SIAMO DOPO L'INIZIO
- /////////////////////////////////////// VERIFICO CHE SIA STATO GIA'CALCOLATO IL RISULTATO 
- 
- ////////////////////////////////////////////PRENDO I RISULTATI E LI MANDO A VIDEO
- 
- 
- //////////////////////////////////////////// ALTRIMENTI PRENDO I DATI INSERITI E LI METTO A VIDEO
-                                res.render('risultato');
+                                var t_query = "Select * v_global_calen where cod_torneo = "+tid+" and nro_giornata = "+nro_giornata+" and nro_partita = "+npar+" ;";
+                                pool.getConnection(function(err,connection){
+                                    if (err) {
+                                        connection.release();
+                                        res.json({"code" : 100, "status" : "Error in connection database"});
+                                        return;
+                                    }
+
+                                    console.log('connected as id ' + connection.threadId);
+
+                                    connection.query(check2,function(err,rows){
+                                        if(!err) {
+                                        var p_query_h = "Select * from v_pronostico where cod_torneo = "+tid+" and nro_giornata = "+nro_giornata+" and pr_squadra = "+rows[0].cod_home+" ;";
+                                        var p_query_a = "Select * from v_pronostico where cod_torneo = "+tid+" and nro_giornata = "+nro_giornata+" and pr_squadra = "+rows[0].cod_away+" ;";
+
+                                            connection.query(p_query_h,function (err2,rows2){
+                                                connection.query(p_query_a,function(err3,rows3){
+                                                    connection.release();
+                                                    res.render('risultato',{
+                                                        "cod_torneo" : tid,
+                                                        "tes": rows[0],
+                                                        "home": rows2,
+                                                        "away": rows3
+                                                    });
+                                                });
+                                            });
+
+                                        }
+                                        else{
+                                            connection.release();
+                                            res.redirect('/utente');
+                                        }
+                                    });
+
+                                    connection.on('error', function(err) {
+                                        res.json({"code" : 100, "status" : "Error in connection database"});
+
+                                    });
+                                });
+
+
                             }
                         }
                     });

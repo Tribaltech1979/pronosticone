@@ -3,12 +3,12 @@
  */
 
 window.addEventListener("resize",function(){
-    $("input").css('width',$("img").width()/13+"px")
+    $("input").css('width',$("img").width()/13+"px");
 })
 
 $(document).ready(function () {
     $("[value='null']").val('');
-    $("input").css('width',$("img").width()/13+"px")
+    $("input").css('width',$("img").width()/13+"px");
     $(".alert").hide();
 
  
