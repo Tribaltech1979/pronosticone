@@ -11,7 +11,7 @@ $(document).ready(function () {
     }
 
 
-    $(".G5,.G14,.G15").each(function(){if($(this).val() && $(this).val()== 0){$(this).val('X');}})
+    $(".G5,.G14,.G15").each(function(){if($(this).html() && $(this).html()== 0){$(this).html('X');}})
 });
 
 function colora(){
@@ -32,7 +32,7 @@ function colora(){
     });
 //// SOMMA GOL
     $(".G11").each(function(){
-        if($(this).html() == ($(this).parents("tr").find(".G3").html()+$(this).parents("tr").find(".G4").html())){
+        if(($(this).html()*1) == ($(this).parents("tr").find(".G3").html()+$(this).parents("tr").find(".G4").html())){
             $(this).css('background-color','green');
             if( $(this).parents("tr").find(".G13").html()){
                 $(this).parents("tr").find(".G13").css('background-color','green');
@@ -41,7 +41,7 @@ function colora(){
     });
 
     $(".G12").each(function(){
-        if($(this).html() == ($(this).parents("tr").find(".G3").html()+$(this).parents("tr").find(".G4").html())){
+        if(($(this).html()*1) == ($(this).parents("tr").find(".G3").html()+$(this).parents("tr").find(".G4").html())){
             $(this).css('background-color','green');
         }
     });
