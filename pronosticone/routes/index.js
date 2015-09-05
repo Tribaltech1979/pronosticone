@@ -411,7 +411,7 @@ router.get('/partita*', function(req, res){
                             }
                             else{
  //////////////////////////////////// SIAMO DOPO L'INIZIO
-                                var t_query = "Select * v_global_calen where cod_torneo = "+tid+" and nro_giornata = "+ngio+" and nro_partita = "+npar+" ;";
+                                var t_query = "Select * from v_global_calen where cod_torneo = "+tid+" and nro_giornata = "+ngio+" and nro_partita = "+npar+" ;";
                                 pool.getConnection(function(err,connection){
                                     if (err) {
                                         connection.release();
