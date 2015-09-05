@@ -411,7 +411,7 @@ router.get('/partita*', function(req, res){
                             }
                             else{
  //////////////////////////////////// SIAMO DOPO L'INIZIO
-                                var t_query = "Select * v_global_calen where cod_torneo = "+tid+" and nro_giornata = "+nro_giornata+" and nro_partita = "+npar+" ;";
+                                var t_query = "Select * v_global_calen where cod_torneo = "+tid+" and nro_giornata = "+ngio+" and nro_partita = "+npar+" ;";
                                 pool.getConnection(function(err,connection){
                                     if (err) {
                                         connection.release();
@@ -421,10 +421,10 @@ router.get('/partita*', function(req, res){
 
                                     console.log('connected as id ' + connection.threadId);
 
-                                    connection.query(check2,function(err,rows){
+                                    connection.query(t_query,function(err,rows){
                                         if(!err) {
-                                        var p_query_h = "Select * from v_pronostico where cod_torneo = "+tid+" and nro_giornata = "+nro_giornata+" and pr_squadra = "+rows[0].cod_home+" ;";
-                                        var p_query_a = "Select * from v_pronostico where cod_torneo = "+tid+" and nro_giornata = "+nro_giornata+" and pr_squadra = "+rows[0].cod_away+" ;";
+                                        var p_query_h = "Select * from v_pronostico where cod_torneo = "+tid+" and nro_giornata = "+ngio+" and pr_squadra = "+rows[0].cod_home+" ;";
+                                        var p_query_a = "Select * from v_pronostico where cod_torneo = "+tid+" and nro_giornata = "+ngio+" and pr_squadra = "+rows[0].cod_away+" ;";
 
                                             connection.query(p_query_h,function (err2,rows2){
                                                 connection.query(p_query_a,function(err3,rows3){
