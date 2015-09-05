@@ -32,7 +32,7 @@ function colora(){
     });
 //// SOMMA GOL
     $(".G11").each(function(){
-        if(($(this).html()*1) == ($(this).parents("tr").find(".G3").html()+$(this).parents("tr").find(".G4").html())){
+        if(($(this).html()*1) == (($(this).parents("tr").find(".G3").html()*1)+($(this).parents("tr").find(".G4").html()*1))){
             $(this).css('background-color','green');
             if( $(this).parents("tr").find(".G13").html()){
                 $(this).parents("tr").find(".G13").css('background-color','green');
@@ -41,7 +41,7 @@ function colora(){
     });
 
     $(".G12").each(function(){
-        if(($(this).html()*1) == ($(this).parents("tr").find(".G3").html()+$(this).parents("tr").find(".G4").html())){
+        if(($(this).html()*1) == (($(this).parents("tr").find(".G3").html()*1)+($(this).parents("tr").find(".G4").html()*1))){
             $(this).css('background-color','green');
         }
     });
