@@ -196,6 +196,14 @@ router.post('/login',function(req,res){
 
 
 });
+///////////////////
+//// LOGOFF
+/////////////////
+router.get('/logoff', function(req,res){
+	delete req.session.utente;
+	delete req.session.id_squadra;
+	res.redirect('/');
+	});
 
 ////////////////////
 ///// TORNEO
@@ -354,6 +362,7 @@ router.get('/partita*', function(req, res){
                                                         connection.release();
                                                         if(!err4) {
                                                             res.render('compila2',{
+                                                            		'title': "Inserimento risultati",
                                                                 'htab' : rows4,
                                                                 'cod_torneo' : tid,
                                                                 'nro_giorn' : ngio
@@ -382,6 +391,7 @@ router.get('/partita*', function(req, res){
                                                         connection.release();
                                                         if(!err4) {
                                                             res.render('compila2',{
+                                                            		'title': "Inserimento risultati",
                                                                 'htab' : rows4,
                                                                 'cod_torneo' : tid,
                                                                 'nro_giorn' : ngio
@@ -398,7 +408,9 @@ router.get('/partita*', function(req, res){
                                             }
                                             else{
                                                 /////////// E' uno spettatore prima dell'inizio
-                                                res.render('aspetta');
+                                                res.render('aspetta',{
+                                                	'title':"Partita ancora da disputare"
+                                                	});
                                             }
                                         }
                                     });
@@ -430,6 +442,7 @@ router.get('/partita*', function(req, res){
                                                 connection.query(p_query_a,function(err3,rows3){
                                                     connection.release();
                                                     res.render('risultato',{
+                                                    		"title" : rows[0].sq_home+" VS "+rows[0].sq_away,
                                                         "cod_torneo" : tid,
                                                         "tes": rows[0],
                                                         "home": rows2,
