@@ -104,7 +104,7 @@ router.get('/utente',function(req,res){
                     var tor_query = "select * from v_torneo where cod_squadra = "+rows[0].id_squadra;
                     connection.query(tor_query,function(err2,rows2) {
                         if(!err2) {
-                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where dt_inizio > sysdate() and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio";
+                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where punti_home is null and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio";
                             connection.query(cal_query, function (err3, rows3) {
 
                                 if (!err3) {
