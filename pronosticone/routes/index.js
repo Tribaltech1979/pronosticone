@@ -228,7 +228,7 @@ router.get('/torneo*', function(req, res){
 
                 if (!err) {
                     var admin = false;
-                    var padre = null;
+                    var padre = {};
 
                     if(rows[0].TOR_COD_PADRE){
                         var q_padr = " select * from Torneo where TOR_COD_PADRE = "+rows[0].TOR_COD_PADRE + " order by TOR_COD_TORNEO";
