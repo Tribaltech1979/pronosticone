@@ -214,64 +214,66 @@ router.get('/torneo*', function(req, res){
 
     var class_query = 'select * from Torneo where TOR_COD_TORNEO = ' + tid ;
     var past = "select * from v_global_calen where cod_torneo = "+tid+" and nro_giornata = (select max(CAL_NRO_GIORNATA) from Calendario where Calendario.CAL_COD_TORNEO = "+tid+" and CAL_PUNTI_HOME is not null)";
+    if (req.session.id_squadra) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                connection.release();
+                res.json({"code": 100, "status": "Error in connection database"});
+                return;
+            }
 
-    pool.getConnection(function(err,connection){
-        if (err) {
-            connection.release();
-            res.json({"code" : 100, "status" : "Error in connection database"});
-            return;
-        }
+            console.log('connected as id ' + connection.threadId);
 
-        console.log('connected as id ' + connection.threadId);
+            connection.query(class_query, function (err, rows) {
 
-        connection.query(class_query,function(err,rows){
+                if (!err) {
+                    var admin = false;
+                    var padre = null;
 
-            if(!err) {
-                var admin = false;
+                    if(rows[0].TOR_COD_PADRE){
+                        var q_padr = " select * from Torneo where TOR_COD_PADRE = "+rows[0].TOR_COD_PADRE + " order by TOR_COD_TORNEO";
+                        connection.query(q_padr, function (err4, rows4) {
+                            padre = rows4;
+                        });
+                    }
 
-                if(req.session.utente == rows[0].TOR_COD_MASTER ){
+
+                    if (req.session.utente == rows[0].TOR_COD_MASTER) {
                         admin = true;
                     }
 
-                connection.query(past,function(err3,rows3){
+                    connection.query(past, function (err3, rows3) {
 
 
-                        if (req.session.id_squadra) {
-                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
-                            connection.query(cal_query, function (err2, rows2) {
-                                connection.release();
-                                res.render('ttorneo', {
-                                    "title": rows[0].TOR_DESCR_TORNEO,
-                                    "image":rows[0].TOR_IMAGE,
-                                    "tid": tid,
-                                    "admin": admin,
-                                    "calen": rows2,
-                                    "pcalen":rows3
-                                });
-                            });
-                        }
-                        else {
+                        var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
+                        connection.query(cal_query, function (err2, rows2) {
                             connection.release();
                             res.render('ttorneo', {
                                 "title": rows[0].TOR_DESCR_TORNEO,
-                                "image":rows[0].TOR_IMAGE,
+                                "image": rows[0].TOR_IMAGE,
+                                "padre": padre,
                                 "tid": tid,
                                 "admin": admin,
-                                "pcalen":rows3
+                                "calen": rows2,
+                                "pcalen": rows3
                             });
-                        }
+                        });
 
-                });
-            }
 
+                    });
+                }
+
+            });
+
+            connection.on('error', function (err) {
+                res.json({"code": 100, "status": "Error in connection database"});
+
+            });
         });
-
-        connection.on('error', function(err) {
-            res.json({"code" : 100, "status" : "Error in connection database"});
-
-        });
-    });
-
+    }
+    else{
+        res.redirect('/');
+    }
 
 
 });
