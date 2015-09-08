@@ -9,7 +9,7 @@ block content
         img.img-thumbnail.pull-left(src="img/#{image}",width="50", height="65")
     div.btn-group.btn-group-justified
         each torn in padre
-            a.btn.btn-default(href="/torneo?tid=#{torn.TOR_COD_TORNEO})
+            a.btn.btn-default(href="/torneo?tid=#{torn.TOR_COD_TORNEO}")
                 |#{torn.TOR_DESCR_TORNEO}
     input(type='hidden', name='torneo', value="#{tid}")
     if admin
