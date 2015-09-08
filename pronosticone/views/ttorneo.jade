@@ -6,6 +6,7 @@ block content
     script(src='/javascript/handsontable.js')
     script(src='/javascript/tabelle.js')
     h1= title
+        img.img-thumbnail.pull-left(src="img/#{image}",width="50", height="65")
     input(type='hidden', name='torneo', value="#{tid}")
     if admin
         h4 Menu amministrazione torneo

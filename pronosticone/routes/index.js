@@ -242,6 +242,7 @@ router.get('/torneo*', function(req, res){
                                 connection.release();
                                 res.render('ttorneo', {
                                     "title": rows[0].TOR_DESCR_TORNEO,
+                                    "image":rows[0].TOR_IMAGE,
                                     "tid": tid,
                                     "admin": admin,
                                     "calen": rows2,
@@ -253,6 +254,7 @@ router.get('/torneo*', function(req, res){
                             connection.release();
                             res.render('ttorneo', {
                                 "title": rows[0].TOR_DESCR_TORNEO,
+                                "image":rows[0].TOR_IMAGE,
                                 "tid": tid,
                                 "admin": admin,
                                 "pcalen":rows3

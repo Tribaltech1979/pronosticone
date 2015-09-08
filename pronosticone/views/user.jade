@@ -19,6 +19,7 @@ block mainbar
     div.list-group(style="max-height: 300px; overflow-y:scroll;")
         each user, i in torneo
             a.list-group-item(href="/torneo?tid=#{user.cod_torneo}")
+                img.img-thumbnail.pull-left(src="img/#{user.image}",width="50", height="65")
                 h4.list-group-item-heading #{user.descr_torneo}
                 p.list-group-item-text Classifica
 block mainleft
