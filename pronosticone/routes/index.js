@@ -250,7 +250,7 @@ router.get('/torneo*', function(req, res){
                         if(!err6){
                             currgio = rows6[0].cur_gio;
                         }
-                        
+
                     });
 
 
