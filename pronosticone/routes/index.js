@@ -250,9 +250,13 @@ router.get('/torneo*', function(req, res){
                         if(!err6){
                             currgio = rows6[0].cur_gio;
                         }
+                        else{
+                            currgio = 1;
+                        }
 
                     });
 
+                    console.log(currgio);
 
                     if (req.session.utente == rows[0].TOR_COD_MASTER) {
                         admin = true;
