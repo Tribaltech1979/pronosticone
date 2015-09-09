@@ -28,8 +28,8 @@ block mainright
                 h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}
                 p.list-group-item-text #{par.descr_torneo}  --  #{par.inizio}
 block mainleft
-        -var mcur = currgio
-        h2 Calendario #{mcur} #{currgio}
+        -var mcur = curgio
+        h2 Calendario #{mcur} #{curgio}
         ul.nav.nav-tabs
             -for(var x=1; x<=numgiorn; x++)
                 if x == mcur

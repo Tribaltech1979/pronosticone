@@ -277,7 +277,7 @@ router.get('/torneo*', function(req, res){
                                 "admin": admin,
                                 "calen": rows2,
                                 "pcalen": rows3,
-                                "currgio" :currgio
+                                "curgio" : currgio
                             });
                         });
 
