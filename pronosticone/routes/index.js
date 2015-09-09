@@ -213,7 +213,10 @@ router.get('/torneo*', function(req, res){
     var tid = req.query.tid;
 
     var class_query = 'select * from Torneo where TOR_COD_TORNEO = ' + tid ;
-    var past = "select * from v_global_calen where cod_torneo = "+tid+" and nro_giornata = (select max(CAL_NRO_GIORNATA) from Calendario where Calendario.CAL_COD_TORNEO = "+tid+" and CAL_PUNTI_HOME is not null)";
+    var past = "select * from v_global_calen where cod_torneo = "+tid;
+    var q_massimo = "select max(GIO_NRO_GIORNATA)'tot_gio' from Giornate where GIO_COD_TORNEO = "+tid;
+    var q_currgio = "select max(nro_giornata)'cur_gio' from v_global_calen where cod_torneo = "+tid+" and punti_home is not null";
+
     if (req.session.id_squadra) {
         pool.getConnection(function (err, connection) {
             if (err) {
@@ -229,6 +232,8 @@ router.get('/torneo*', function(req, res){
                 if (!err) {
                     var admin = false;
                     var padre = {};
+                    var massimo = 1;
+                    var currgio = 1;
 
                     if(rows[0].TOR_COD_PADRE){
                         var q_padr = " select * from Torneo where TOR_COD_PADRE = "+rows[0].TOR_COD_PADRE + " order by TOR_COD_TORNEO";
@@ -236,6 +241,17 @@ router.get('/torneo*', function(req, res){
                             padre = rows4;
                         });
                     }
+
+                    connection.query(q_massimo, function(err5,rows5){
+                        massimo = rows5[0].tot_gio;
+                    });
+
+                    connection.query(q_massimo, function(err6,rows6){
+                        if(!err6){
+                            currgio = rows6[0].cur_gio;
+                        }
+                        
+                    });
 
 
                     if (req.session.utente == rows[0].TOR_COD_MASTER) {
@@ -251,11 +267,13 @@ router.get('/torneo*', function(req, res){
                             res.render('ttorneo', {
                                 "title": rows[0].TOR_DESCR_TORNEO,
                                 "image": rows[0].TOR_IMAGE,
+                                "numgiorn": massimo,
                                 "padre": padre,
                                 "tid": tid,
                                 "admin": admin,
                                 "calen": rows2,
-                                "pcalen": rows3
+                                "pcalen": rows3,
+                                "currgio" :currgio
                             });
                         });
 
