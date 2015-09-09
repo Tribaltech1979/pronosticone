@@ -58,7 +58,7 @@ block mainleft
                             each past in pcalen
                                 if past.nro_giornata == y
                                     a.list-group-item(href="/partita?tid=#{past.cod_torneo}&ngio=#{past.nro_giornata}&npar=#{past.nro_partita}")
-                                        if past.gol_home
+                                        if past.punti_home
                                             h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away} --- #{past.gol_home} - #{past.gol_away}
                                             p.list-group-item-text #{past.descr_torneo}  -- #{past.punti_home}/#{past.punti_away}
                                         else
