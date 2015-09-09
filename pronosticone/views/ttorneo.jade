@@ -31,7 +31,7 @@ block mainleft
         h2 Calendario #{curgio}
         ul.nav.nav-tabs
             -for(var x=1; x<=numgiorn; x++)
-                if x == curgio
+                if x == 1
                     li.active
                         a(data-toggle="tab", href="#menu#{x}") G #{x}
                 else
@@ -40,16 +40,29 @@ block mainleft
 
         div.tab-content
             -for(var y=1; y<=numgiorn; y++)
-                div.tab-pane(id="menu#{y}")
-                    div.list-group(style="max-height:300px;overflow-y:scroll;")
-                        each past in pcalen
-                            if past.nro_giornata == y
-                                a.list-group-item(href="/partita?tid=#{past.cod_torneo}&ngio=#{past.nro_giornata}&npar=#{past.nro_partita}")
-                                    if past.gol_home
-                                        h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away} --- #{past.gol_home} - #{past.gol_away}
-                                        p.list-group-item-text #{past.descr_torneo}  -- #{past.punti_home}/#{past.punti_away}
-                                    else
-                                        h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away}
-                                        p.list-group-item-text #{past.descr_torneo}  --  #{past.inizio}
+                if y == 1
+                    div.tab-pane.active(id="menu#{y}")
+                        div.list-group(style="max-height:300px;overflow-y:scroll;")
+                            each past in pcalen
+                                if past.nro_giornata == y
+                                    a.list-group-item(href="/partita?tid=#{past.cod_torneo}&ngio=#{past.nro_giornata}&npar=#{past.nro_partita}")
+                                        if past.gol_home
+                                            h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away} --- #{past.gol_home} - #{past.gol_away}
+                                            p.list-group-item-text #{past.descr_torneo}  -- #{past.punti_home}/#{past.punti_away}
+                                        else
+                                            h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away}
+                                            p.list-group-item-text #{past.descr_torneo}  --  #{past.inizio}
+                else
+                    div.tab-pane(id="menu#{y}")
+                        div.list-group(style="max-height:300px;overflow-y:scroll;")
+                            each past in pcalen
+                                if past.nro_giornata == y
+                                    a.list-group-item(href="/partita?tid=#{past.cod_torneo}&ngio=#{past.nro_giornata}&npar=#{past.nro_partita}")
+                                        if past.gol_home
+                                            h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away} --- #{past.gol_home} - #{past.gol_away}
+                                            p.list-group-item-text #{past.descr_torneo}  -- #{past.punti_home}/#{past.punti_away}
+                                        else
+                                            h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away}
+                                            p.list-group-item-text #{past.descr_torneo}  --  #{past.inizio}
         div.btn-group-vertical
             a.btn.btn-info(href="/utente") Principale
