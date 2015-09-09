@@ -29,9 +29,10 @@ block mainright
                 p.list-group-item-text #{par.descr_torneo}  --  #{par.inizio}
 block mainleft
         h2 Calendario
+        -var mcur = currgio
         ul.nav.nav-tabs
             -for(var x=1; x<=numgiorn; x++)
-                if (x == currgio)
+                if (x == mcur)
                     li.active
                         a(data-toggle="tab", href="#menu#{x}") G #{x}
                 else
