@@ -246,7 +246,7 @@ router.get('/torneo*', function(req, res){
                         massimo = rows5[0].tot_gio;
                     });
 
-                    connection.query(q_massimo, function(err6,rows6){
+                    connection.query(q_currgio, function(err6,rows6){
                         if(!err6){
                             currgio = rows6[0].cur_gio;
                         }
