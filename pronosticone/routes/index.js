@@ -233,7 +233,7 @@ router.get('/torneo*', function(req, res){
                     var admin = false;
                     var padre = {};
                     var massimo = 1;
-                    var currgio = 1;
+                    var mgio = 1;
 
                     if(rows[0].TOR_COD_PADRE){
                         var q_padr = " select * from Torneo where TOR_COD_PADRE = "+rows[0].TOR_COD_PADRE + " order by TOR_COD_TORNEO";
@@ -248,10 +248,10 @@ router.get('/torneo*', function(req, res){
 
                     connection.query(q_currgio, function(err6,rows6){
                         if(!err6){
-                            currgio = rows6[0].cur_gio;
+                            mgio = rows6[0].cur_gio;
                         }
                         else{
-                            currgio = 1;
+                            mgio = 1;
                         }
 
                     });
@@ -272,12 +272,12 @@ router.get('/torneo*', function(req, res){
                                 "title": rows[0].TOR_DESCR_TORNEO,
                                 "image": rows[0].TOR_IMAGE,
                                 "numgiorn": massimo,
+                                "curgio" : mgio,
                                 "padre": padre,
                                 "tid": tid,
                                 "admin": admin,
                                 "calen": rows2,
-                                "pcalen": rows3,
-                                "curgio" : currgio
+                                "pcalen": rows3
                             });
                         });
 

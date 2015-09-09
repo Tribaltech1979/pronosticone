@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3978" max-vertical-offset="13974">
-              <caret line="276" column="47" selection-start-line="276" selection-start-column="47" selection-end-line="276" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.89966923" vertical-offset="3859" max-vertical-offset="13974">
+              <caret line="275" column="47" selection-start-line="275" selection-start-column="47" selection-end-line="275" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -86,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ttorneo.jade" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ttorneo.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/ttorneo.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5251397" vertical-offset="91" max-vertical-offset="1020">
+            <state vertical-scroll-proportion="-18.8" vertical-offset="91" max-vertical-offset="1020">
               <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
               <folding />
             </state>
@@ -162,8 +162,8 @@
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/public/javascript/ristab.js" />
         <option value="$PROJECT_DIR$/views/user.jade" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/ttorneo.jade" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
       </list>
     </option>
   </component>
@@ -787,18 +787,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/views/ttorneo.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3978" max-vertical-offset="13974">
-          <caret line="276" column="47" selection-start-line="276" selection-start-column="47" selection-end-line="276" selection-end-column="47" />
+        <state vertical-scroll-proportion="-18.8" vertical-offset="91" max-vertical-offset="1020">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/ttorneo.jade">
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5251397" vertical-offset="91" max-vertical-offset="1020">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.89966923" vertical-offset="3859" max-vertical-offset="13974">
+          <caret line="275" column="47" selection-start-line="275" selection-start-column="47" selection-end-line="275" selection-end-column="47" />
           <folding />
         </state>
       </provider>
