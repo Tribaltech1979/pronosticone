@@ -256,7 +256,7 @@ router.get('/torneo*', function(req, res){
 
                     });
 
-                    console.log(currgio);
+                   // console.log(mgio);
 
                     if (req.session.utente == rows[0].TOR_COD_MASTER) {
                         admin = true;
