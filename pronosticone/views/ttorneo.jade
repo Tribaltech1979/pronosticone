@@ -33,10 +33,10 @@ block mainleft
             -for(var x=1; x<=numgiorn; x++)
                 if x==currgio
                     li.active
-                        a(href="#menu#{x}")
+                        a(href="#menu#{x}")#{x}
                 else
                     li
-                        a(href="#menu#{x}")
+                        a(href="#menu#{x}")#{x}
 
         div.tab-content
             -for(var y=1; y<=numgiorn; y++)
