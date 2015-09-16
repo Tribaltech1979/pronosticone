@@ -15,30 +15,31 @@ function checkSubmit() {
     var good = true;
     $("input").css("background-color", "white");
     good = true;
+
     $(".G1,.G2").each(function(){
-        if(!$(this).val()){
-            $(this).css('background-color','red');
-            good = false;
-        }
-    });
-    $(".G1,.G2").each(function(){
-        if(isNaN($(this).val())){
-            $(this).css('background-color','red');
-            good = false;
+        if($(this).val()) {
+            if (isNaN($(this).val())) {
+                $(this).css('background-color', 'red');
+                good = false;
+            }
         }
     });
 
     $(".G1").each(function(){
-        if($(this).val()> $(this).parents("tr").find(".G2").val()){
-            $(this).parents("tr").find(".G3").val(1);
-        }
-        else if ($(this).val() < $(this).parents("tr").find(".G2").val()){
-            $(this).parents("tr").find(".G3").val(2);
-        }
-        else if ($(this).val() == $(this).parents("tr").find(".G2").val()){
-            $(this).parents("tr").find(".G3").val(0);
+        if($(this).val()) {
+            if ($(this).val() > $(this).parents("tr").find(".G2").val()) {
+                $(this).parents("tr").find(".G3").val(1);
+            }
+            else if ($(this).val() < $(this).parents("tr").find(".G2").val()) {
+                $(this).parents("tr").find(".G3").val(2);
+            }
+            else if ($(this).val() == $(this).parents("tr").find(".G2").val()) {
+                $(this).parents("tr").find(".G3").val(0);
+            }
         }
     });
+
+    return good;
 }
 
 function invia() {
