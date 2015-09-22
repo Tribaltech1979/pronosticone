@@ -49,19 +49,34 @@ function invia() {
     arG1={};
     arG4={};
     $(".G1").each(function(){
-        arG1[$(this).attr("name").substr(3,6)] = $(this).val();
+        if ($(this).val()){
+        arG1[$(this).attr("name").substr(3,6)] = $(this).val();}
+        else{
+            arG1[$(this).attr("name").substr(3,6)] = 'null';
+        }
+
         arG4[count]= $(this).attr("name").substr(3,6);
         count = count +1;
     });
 
     arG2={};
     $(".G2").each(function(){
-        arG2[$(this).attr("name").substr(3,6)] = $(this).val();
+        if($(this).val()) {
+            arG2[$(this).attr("name").substr(3, 6)] = $(this).val();
+        }
+        else{
+            arG2[$(this).attr("name").substr(3, 6)] = 'null';
+        }
     });
 
     arG3={};
     $(".G3").each(function(){
-        arG3[$(this).attr("name").substr(3,6)] = $(this).val();
+        if($(this).val()) {
+            arG3[$(this).attr("name").substr(3, 6)] = $(this).val();
+        }
+        else{
+            arG3[$(this).attr("name").substr(3, 6)] = 'null';
+        }
     });
 
     var SarG1 = JSON.stringify(arG1);
