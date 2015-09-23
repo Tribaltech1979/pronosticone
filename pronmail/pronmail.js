@@ -6,8 +6,8 @@ var ses = require('nodemailer-ses-transport');
 
 // create reusable transporter object using SMTP transport
 var transporter = nodemailer.createTransport(ses({
-    accessKeyId: 'AKIAJ2GLFGBG26V3C2WQ',
-    secretAccessKey: 'AoMV3cmk57qlcXTBwQh0GTo+gjJ4AL8bBRq/pbOx0LCt',
+    AWSAccessKeyID: "AKIAJ2GLFGBG26V3C2WQ",
+    AWSSecretKey: "AoMV3cmk57qlcXTBwQh0GTo+gjJ4AL8bBRq/pbOx0LCt",
     ServiceUrl:"https://email-smtp.us-west-2.amazonaws.com"
 }));
 
