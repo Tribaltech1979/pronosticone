@@ -16,7 +16,7 @@ var transporter = nodemailer.createTransport(ses({
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: 'Pronosticone <pronosticon.net@gmail.com>', // sender address
+    from: 'Pronosticone <pronosticone.net@gmail.com>', // sender address
     to: 'tribaltech@gmail.com', // list of receivers
     subject: 'Hello', // Subject line
     text: 'Hello world', // plaintext body
