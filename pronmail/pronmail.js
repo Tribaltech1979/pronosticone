@@ -7,7 +7,8 @@ var ses = require('nodemailer-ses-transport');
 // create reusable transporter object using SMTP transport
 var transporter = nodemailer.createTransport(ses({
     accessKeyId: 'AKIAJ2GLFGBG26V3C2WQ',
-    secretAccessKey: 'AoMV3cmk57qlcXTBwQh0GTo+gjJ4AL8bBRq/pbOx0LCt'
+    secretAccessKey: 'AoMV3cmk57qlcXTBwQh0GTo+gjJ4AL8bBRq/pbOx0LCt',
+    region:"us-west-2"
 }));
 
 // NB! No need to recreate the transporter object. You can use
