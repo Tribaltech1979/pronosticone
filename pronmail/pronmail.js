@@ -18,7 +18,7 @@ var transporter = nodemailer.createTransport(ses({
 var mailOptions = {
     from: 'Pronosticone <pronosticone.net@gmail.com>', // sender address
     to: 'tribaltech@gmail.com', // list of receivers
-    subject: 'Hello', // Subject line
+    subject: 'Prova', // Subject line
     text: 'Hello world', // plaintext body
     html: '<b>Hello world</b>' // html body
 };

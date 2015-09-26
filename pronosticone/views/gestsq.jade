@@ -1,0 +1,44 @@
+//
+   Created by Schiappacassed on 19/09/2015.
+
+extends layout
+block content
+    script(src='/javascript/gestsq.js')
+    h1.text-left Cambio Password
+    div.alert.alert-danger
+        a.close(href='#',data-dismiss='alert', aria-label='close') &times;
+        |<strong> Attenzione </strong> Bisogna correggere prima di inviare
+    div.alert.alert-success
+        a.close(href='#',data-dismiss='alert', aria-label='close') &times;
+        |<strong> Successo </strong> Salvataggio completo
+block mainbar
+    form(name='cambia',id="cambia" , method='post', action='/gestsq')
+        table.table-bordered
+            tbody
+                tr
+                    td Nome Squadra
+                    td
+                        input.G1(type="text" , name="G1", value="")
+                    td
+                        button.btn.btn-success#btnSubmit(type="button", value="Salva", onclick='validate()') Salva
+                tr
+                    td Immagine Squadra
+                    td
+                        input.G2(type="file" , name="G2", value="")
+                    td
+                        button.btn.btn-success#btnSubmit(type="button", value="Salva", onclick='validate()') Salva
+                tr
+                    td Email
+                    td
+                        input.G3(type="email" , name="G3", value="")
+                    td
+                        button.btn.btn-success#btnSubmit(type="button", value="Salva", onclick='validate()') Salva
+                tr
+                    td Promemoria
+                    td
+                        input.G4(type="checkbox" , name="G3", value="")
+                    td
+                        button.btn.btn-success#btnSubmit(type="button", value="Salva", onclick='validate()') Salva
+block mainleft
+    div.btn-group-vertical
+        a.btn.btn-info(href="/utente") Principale
