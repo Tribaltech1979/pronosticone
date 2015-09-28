@@ -11,10 +11,11 @@ var dbfile = 'db.sk';
 
 var configuration = JSON.parse(fs.readFileSync(dbfile));
 
-var accfile = 'accfile.sk';
-var secretfile = 'sfile.sk';
-var acc = fs.readFile(accfile,"utf8",function(err,data){ return data});
-var secret = fs.readFile(secretfile,"utf8",function(err,data){ return data});
+var mailfile = 'mail.sk';
+var mailconf = JSON.parse(fs.readFileSync(mailfile));
+
+var acc = mailconf.acc;
+var secret = mailconf.secret;
 
 var connection = mysql.createConnection({
     host     : configuration.database,
@@ -24,7 +25,7 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function(err){
-    console.log(configuration);
+   // console.log(configuration);
     if(!err) {
         console.log("Database is connected ... \n\n");
     } else {
@@ -44,6 +45,7 @@ connection.query('select * from v_mail1', function(err, rows) {
 // the same transporter object for all e-mails
 
 // setup e-mail data with unicode symbols
+    console.log(rows);
     var i;
 if(!err) {
     for(i=0; i <= rows.length; i++) {
