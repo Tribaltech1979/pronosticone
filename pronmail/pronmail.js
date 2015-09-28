@@ -7,9 +7,9 @@ var ses = require('nodemailer-ses-transport');
 var fs = require('fs');
 var mysql = require("mysql");
 
-var host = fs.readFile('host.sk',"utf8",function(err,data){ return data});
-var user = fs.readFile('dbuser.sk',"utf8",function(err,data){ return data});
-var pass = fs.readFile('dbpass.sk',"utf8",function(err,data){ return data});
+var dbfile = 'db.sk';
+
+var configuration = JSON.parse(fs.readFileSync(dbfile));
 
 var accfile = 'accfile.sk';
 var secretfile = 'sfile.sk';
@@ -17,14 +17,14 @@ var acc = fs.readFile(accfile,"utf8",function(err,data){ return data});
 var secret = fs.readFile(secretfile,"utf8",function(err,data){ return data});
 
 var connection = mysql.createConnection({
-    host     : host,
-    user     : user,
-    password : pass,
+    host     : configuration.database,
+    user     : configuration.username,
+    password : configuration.password,
     database : 'pronosticone'
 });
 
 connection.connect(function(err){
-    console.log(host+" "+user+" "+pass);
+    console.log(configuration);
     if(!err) {
         console.log("Database is connected ... \n\n");
     } else {
