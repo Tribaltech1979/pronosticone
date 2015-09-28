@@ -50,8 +50,8 @@ if(!err) {
             from: 'Pronosticone <pronosticone.net@gmail.com>', // sender address
             to: rows[i].mail, // list of receivers
             subject: 'Avviso, pronostico mancante', // Subject line
-            text: 'Ciao '+ rows[i].n_squadra+', ti ricordiamo che non hai ancora inserito il pronostico per la partita del '+rows[i].data_inizio+'. Collegati a http://www.pronosticone.net/partita?tid='+rows[0].cod_torneo+'&ngio='rows[0].nro_giornata+'&npar='+rows[0].nro_partita, // plaintext body
-            html: '<html></script><link rel="stylesheet"href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><body><header><img src="http://www.pronosticone.net/img/bannerp.jpg" alt="banner" class="img-responsive"><h1> Attenzione '+rows[i].n_squadra+'</h1><p> Non risulta ancora inserito il pronostico per la partita del giorno '+rows[i].data_inizio+'</p><p> Per inserire il pronostico clicca <a href="http://www.pronosticone.net/partita?tid='+rows[0].cod_torneo+'&ngio='rows[0].nro_giornata+'&npar='+rows[0].nro_partita+'"> qui. </p></html>' // html body
+            text: "Ciao "+ rows[i].n_squadra+", ti ricordiamo che non hai ancora inserito il pronostico per la partita del "+rows[i].data_inizio+". Collegati a http://www.pronosticone.net/partita?tid="+rows[0].cod_torneo+"&ngio="+rows[0].nro_giornata+"&npar="+rows[0].nro_partita, // plaintext body
+            html: '<html></script><link rel="stylesheet"href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><body><header><img src="http://www.pronosticone.net/img/bannerp.jpg" alt="banner" class="img-responsive"><h1> Attenzione '+rows[i].n_squadra+'</h1><p> Non risulta ancora inserito il pronostico per la partita del giorno '+rows[i].data_inizio+'</p><p> Per inserire il pronostico clicca <a href="http://www.pronosticone.net/partita?tid='+rows[0].cod_torneo+'&ngio='+rows[0].nro_giornata+'&npar='+rows[0].nro_partita+'"> qui. </p></html>' // html body
         };
 
 // send mail with defined transport object
