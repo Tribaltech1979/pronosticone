@@ -48,7 +48,7 @@ connection.query('select * from v_mail1', function(err, rows) {
     console.log(rows);
     var i;
 if(!err) {
-    for(i=0; i <= rows.length; i++) {
+    for(i=0; i < rows.length; i++) {
         var mailOptions = {
             from: 'Pronosticone <pronosticone.net@gmail.com>', // sender address
             to: rows[i].mail, // list of receivers
