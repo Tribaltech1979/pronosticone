@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     if(req.session.utente){
@@ -818,7 +819,7 @@ if(req.session.id_squadra) {
 
         console.log('connected as id ' + connection.threadId);
 
-        connection.query("sq_query", function (err, rows) {
+        connection.query(sq_query, function (err, rows) {
             connection.release();
             if (!err) {
                 res.render('gestsq', {

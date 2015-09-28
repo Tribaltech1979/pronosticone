@@ -45,7 +45,7 @@ connection.query('select * from v_mail1', function(err, rows) {
 // the same transporter object for all e-mails
 
 // setup e-mail data with unicode symbols
-    console.log(rows);
+  //  console.log(rows);
     var i;
 if(!err) {
     for(i=0; i < rows.length; i++) {
@@ -68,3 +68,5 @@ if(!err) {
     }
         }
 });
+
+process.exit(0);
