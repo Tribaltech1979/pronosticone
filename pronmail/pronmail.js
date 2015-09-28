@@ -24,6 +24,7 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function(err){
+    console.log(host+" "+user+" "+pass);
     if(!err) {
         console.log("Database is connected ... \n\n");
     } else {
