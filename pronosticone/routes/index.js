@@ -23,7 +23,9 @@ router.get('/cambiop',function(req,res){
 	else{res.redirect('/login');}
 
 });
-
+///////////////
+/// CAMBIO PASSWORD
+///////////////////
 
 router.post('/cambiop',function(req,res){
 		var passo = req.body.passold;
@@ -57,10 +59,10 @@ router.post('/cambiop',function(req,res){
 					            connection.query(updquery,function(err,rows){
 					                connection.release();
 					                if(!err) {
-															res.send(200);
+															res.sendStatus(200);
 					                }
 					                else{
-					                		res.send(500);
+					                		res.sendStatus(500);
 					                	}
 					            });
 					
@@ -71,7 +73,7 @@ router.post('/cambiop',function(req,res){
 					        });
             }
             else{
-                res.send(400);
+                res.sendStatus(400);
             }
         });
 
@@ -83,7 +85,91 @@ router.post('/cambiop',function(req,res){
 		
 		
 	});
+//////////////////
+//// CAMBIO NOME SQUADRA
+/////////////////
+
+router.post('/cambiosq', function(req,res){
+    var pool = req.pool;
+    var nomesq = req.body.sqnew;
+
+    if(req.session.id_squadra)
+    {
+        var upd_sq = "UPDATE Squadre set SQ_NOME_SQUADRA = '"+nomesq+"' where SQ_ID_SQUADRA = "+req.session.id_squadra;
+        pool.getConnection(function(err,connection){
+            if (err) {
+                connection.release();
+                res.json({"code" : 100, "status" : "Error in connection database"});
+                return;
+            }
+
+            console.log('connected as id ' + connection.threadId);
+
+            connection.query(upd_sq,function(err,rows){
+                connection.release();
+                if(!err) {
+                    res.sendStatus(200);
+                }
+                else{
+                    res.sendStatus(500);
+                }
+            });
+
+            connection.on('error', function(err) {
+                res.json({"code" : 100, "status" : "Error in connection database"});
+
+            });
+        });
+    }
+    else{
+        res.redirect('/login');
+    }
+});
+
+///////////////
+//// MAIL
+//////////////
+
+router.post('/cmail', function(req,res){
+    var pool = req.pool;
+    var nmail = req.body.smail;
+
+    if(req.session.id_squadra)
+    {
+        var upd_sq = "UPDATE Squadre set SQ_MAIL = '"+nmail+"' where SQ_ID_SQUADRA = "+req.session.id_squadra;
+        pool.getConnection(function(err,connection){
+            if (err) {
+                connection.release();
+                res.json({"code" : 100, "status" : "Error in connection database"});
+                return;
+            }
+
+            console.log('connected as id ' + connection.threadId);
+
+            connection.query(upd_sq,function(err,rows){
+                connection.release();
+                if(!err) {
+                    res.sendStatus(200);
+                }
+                else{
+                    res.sendStatus(500);
+                }
+            });
+
+            connection.on('error', function(err) {
+                res.json({"code" : 100, "status" : "Error in connection database"});
+
+            });
+        });
+    }
+    else{
+        res.redirect('/login');
+    }
+});
+
+/////////////
 //// UTENTE
+/////////////
 router.get('/utente',function(req,res){
     if(req.session.utente){
         var pool = req.pool;

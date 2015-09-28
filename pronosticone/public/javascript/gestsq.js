@@ -2,6 +2,7 @@
  * Created by Schiappacassed on 19/09/2015.
  */
 $(document).ready(function () {
+    $(".G2").attr('disable','true');
     $(".alert").hide();
 
 })
@@ -44,12 +45,43 @@ function invia(){
     );
 }
 
-function validate() {
-    if (checkSubmit()) {
-        // document.getElementById("compila").submit();
-        invia();
+function validate1() {
+    $(".alert").hide();
+    if($(".G1").val() && $(".G1").val().length < 50){
+        $.post("/cambiosq",{
+            sqnew : $(".G1").val()
+        },
+            function(data,status){        if(status=='success'){
+                $(".alert-success").show();
+            }
+            else{
+                $(".alert-danger").show();
+            }
+            })
     }
     else {
+        $(".alert-danger").show();
+    }
+
+}
+
+function validate2(){}
+
+function validate3(){
+    $(".alert").hide();
+    if($(".G3").val()){
+        $.post("/cmail",{
+                smail : $(".G3").val()
+            },
+            function(data,status){        if(status=='success'){
+                $(".alert-success").show();
+            }
+            else{
+                $(".alert-danger").show();
+            }
+            })
+    }
+    else{
         $(".alert-danger").show();
     }
 }
