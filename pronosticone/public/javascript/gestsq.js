@@ -70,8 +70,16 @@ function validate2(){}
 function validate3(){
     $(".alert").hide();
     if($(".G3").val()){
+        var checkb = '';
+
+       if($(".G4").is(':checked')){
+           checkb = 'X';
+       }
+
+
         $.post("/cmail",{
-                smail : $(".G3").val()
+                smail : $(".G3").val(),
+                avv : checkb
             },
             function(data,status){        if(status=='success'){
                 $(".alert-success").show();

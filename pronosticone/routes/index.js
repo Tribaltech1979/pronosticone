@@ -134,10 +134,11 @@ router.post('/cambiosq', function(req,res){
 router.post('/cmail', function(req,res){
     var pool = req.pool;
     var nmail = req.body.smail;
+    var avv = req.body.avv;
 
     if(req.session.id_squadra)
     {
-        var upd_sq = "UPDATE Squadre set SQ_MAIL = '"+nmail+"' where SQ_ID_SQUADRA = "+req.session.id_squadra;
+        var upd_sq = "UPDATE Squadre set SQ_MAIL = '"+nmail+"', SQ_AVVISO = '"+avv+"' where SQ_ID_SQUADRA = "+req.session.id_squadra;
         pool.getConnection(function(err,connection){
             if (err) {
                 connection.release();
