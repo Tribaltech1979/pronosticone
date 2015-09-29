@@ -427,7 +427,7 @@ router.get('/partita*', function(req, res){
     var npar = req.query.npar;
 
 
-    var check1= 'SELECT if (sysdate() < addtime(GIO_DATA_INIZIO, GIO_ORA_INIZIO), 1,0) as CH1, if (sysdate()> GIO_DATA_FINE,1,0) as CH2  FROM Giornate where GIO_COD_TORNEO = '+ tid + ' and GIO_NRO_GIORNATA = '+ngio;
+    var check1= "SELECT if ( convert_tz(sysdate(),'-1:00','+1:00') < addtime(GIO_DATA_INIZIO, GIO_ORA_INIZIO), 1,0) as CH1, if (sysdate()> GIO_DATA_FINE,1,0) as CH2  FROM Giornate where GIO_COD_TORNEO = "+ tid + " and GIO_NRO_GIORNATA = "+ngio;
     var check2= 'SELECT * FROM Calendario where CAL_COD_TORNEO = ' + tid + ' and CAL_NRO_GIORNATA = '+ngio+' and CAL_NRO_PARTITA = '+ npar;
 
     var pron = 'SELECT * FROM v_pronostico where cod_torneo = '+tid+' and nro_giornata = '+ngio+' and pr_squadra = '+ req.session.id_squadra;
