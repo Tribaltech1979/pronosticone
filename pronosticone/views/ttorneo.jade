@@ -26,12 +26,12 @@ block mainright
         each par, i in calen
             a.list-group-item(href="/partita?tid=#{par.cod_torneo}&ngio=#{par.nro_giornata}&npar=#{par.nro_partita}")
                 h4.list-group-item-heading #{par.sq_home}  VS  #{par.sq_away}
-                p.list-group-item-text #{par.descr_torneo}  --  #{par.inizio}
+                p.list-group-item-text #{par.descr_torneo}  --  #{par.inizio} -  #{par.ora}
 block mainleft
-        h2 Calendario #{curgio}
+        h2 Calendario
         ul.nav.nav-tabs
             -for(var x=1; x<=numgiorn; x++)
-                if x == 1
+                if x == curgio
                     li.active
                         a(data-toggle="tab", href="#menu#{x}") G #{x}
                 else
@@ -40,7 +40,7 @@ block mainleft
 
         div.tab-content
             -for(var y=1; y<=numgiorn; y++)
-                if y == 1
+                if y == curgio
                     div.tab-pane.active(id="menu#{y}")
                         div.list-group(style="max-height:300px;overflow-y:scroll;")
                             each past in pcalen
@@ -51,7 +51,7 @@ block mainleft
                                             p.list-group-item-text #{past.descr_torneo}  -- #{past.punti_home}/#{past.punti_away}
                                         else
                                             h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away}
-                                            p.list-group-item-text #{past.descr_torneo}  --  #{past.inizio}
+                                            p.list-group-item-text #{past.descr_torneo}  --  #{past.inizio} -  #{past.ora}
                 else
                     div.tab-pane(id="menu#{y}")
                         div.list-group(style="max-height:300px;overflow-y:scroll;")
@@ -63,6 +63,6 @@ block mainleft
                                             p.list-group-item-text #{past.descr_torneo}  -- #{past.punti_home}/#{past.punti_away}
                                         else
                                             h4.list-group-item-heading #{past.sq_home}  VS  #{past.sq_away}
-                                            p.list-group-item-text #{past.descr_torneo}  --  #{past.inizio}
+                                            p.list-group-item-text #{past.descr_torneo}  --  #{past.inizio} -  #{past.ora}
         div.btn-group-vertical
             a.btn.btn-info(href="/utente") Principale

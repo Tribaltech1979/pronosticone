@@ -192,11 +192,11 @@ router.get('/utente',function(req,res){
                     var tor_query = "select * from v_torneo where cod_squadra = "+rows[0].id_squadra;
                     connection.query(tor_query,function(err2,rows2) {
                         if(!err2) {
-                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where punti_home is null and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio";
+                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio',TIME_FORMAT(ora_inizio,'%H:%i')'ora' from v_global_calen where punti_home is null and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio";
                             connection.query(cal_query, function (err3, rows3) {
 
                                 if (!err3) {
-                                    var cal_past = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where punti_home is not null and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio desc";
+                                    var cal_past = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio',TIME_FORMAT(ora_inizio,'%H:%i')'ora' from v_global_calen where punti_home is not null and ( cod_home = " + rows[0].id_squadra + " or cod_away = " + rows[0].id_squadra +" ) order by dt_inizio desc";
                                     connection.query(cal_past,function(err4,rows4) {
                                         connection.release();
                                         if(!err4) {
@@ -353,7 +353,7 @@ router.get('/torneo*', function(req, res){
                     connection.query(past, function (err3, rows3) {
 
 
-                        var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
+                        var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio',TIME_FORMAT(ora_inizio,'%H:%i')'ora' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
                         connection.query(cal_query, function (err2, rows2) {
                             connection.release();
                             res.render('ttorneo', {
@@ -427,7 +427,7 @@ router.get('/partita*', function(req, res){
     var npar = req.query.npar;
 
 
-    var check1= 'SELECT if (sysdate() < GIO_DATA_INIZIO, 1,0) as CH1, if (sysdate()> GIO_DATA_FINE,1,0) as CH2  FROM Giornate where GIO_COD_TORNEO = '+ tid + ' and GIO_NRO_GIORNATA = '+ngio;
+    var check1= 'SELECT if (sysdate() < addtime(GIO_DATA_INIZIO, GIO_ORA_INIZIO), 1,0) as CH1, if (sysdate()> GIO_DATA_FINE,1,0) as CH2  FROM Giornate where GIO_COD_TORNEO = '+ tid + ' and GIO_NRO_GIORNATA = '+ngio;
     var check2= 'SELECT * FROM Calendario where CAL_COD_TORNEO = ' + tid + ' and CAL_NRO_GIORNATA = '+ngio+' and CAL_NRO_PARTITA = '+ npar;
 
     var pron = 'SELECT * FROM v_pronostico where cod_torneo = '+tid+' and nro_giornata = '+ngio+' and pr_squadra = '+ req.session.id_squadra;
