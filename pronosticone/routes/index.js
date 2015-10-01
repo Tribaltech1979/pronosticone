@@ -303,7 +303,7 @@ router.get('/torneo*', function(req, res){
     var class_query = 'select * from Torneo where TOR_COD_TORNEO = ' + tid ;
     var past = "select * from v_global_calen where cod_torneo = "+tid;
     var q_massimo = "select max(GIO_NRO_GIORNATA)'tot_gio' from Giornate where GIO_COD_TORNEO = "+tid;
-    var q_currgio = "select max(nro_giornata)'cur_gio' from v_global_calen where cod_torneo = "+tid+" and punti_home is not null";
+    var q_currgio = "select ifnull(max(nro_giornata),1)'cur_gio' from v_global_calen where cod_torneo = "+tid+" and punti_home is not null";
 
     if (req.session.id_squadra) {
         pool.getConnection(function (err, connection) {
@@ -318,59 +318,116 @@ router.get('/torneo*', function(req, res){
             connection.query(class_query, function (err, rows) {
 
                 if (!err) {
-                    var admin = false;
-                    var padre = {};
-                    var massimo = 1;
-                    var mgio = 1;
+                    if(rows[0].TOR_TIPO_TORNEO ==1) {
+                        var admin = false;
+                        var padre = {};
+                        var massimo = 1;
+                        var mgio = 1;
 
-                    if(rows[0].TOR_COD_PADRE){
-                        var q_padr = " select * from Torneo where TOR_COD_PADRE = "+rows[0].TOR_COD_PADRE + " order by TOR_COD_TORNEO";
-                        connection.query(q_padr, function (err4, rows4) {
-                            padre = rows4;
-                        });
-                    }
-
-                    connection.query(q_massimo, function(err5,rows5){
-                        massimo = rows5[0].tot_gio;
-                    });
-
-                    connection.query(q_currgio, function(err6,rows6){
-                        if(!err6){
-                            mgio = rows6[0].cur_gio;
-                        }
-                        else{
-                            mgio = 1;
-                        }
-
-                    });
-
-                   // console.log(mgio);
-
-                    if (req.session.utente == rows[0].TOR_COD_MASTER) {
-                        admin = true;
-                    }
-
-                    connection.query(past, function (err3, rows3) {
-
-
-                        var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio',TIME_FORMAT(ora_inizio,'%H:%i')'ora' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
-                        connection.query(cal_query, function (err2, rows2) {
-                            connection.release();
-                            res.render('ttorneo', {
-                                "title": rows[0].TOR_DESCR_TORNEO,
-                                "image": rows[0].TOR_IMAGE,
-                                "numgiorn": massimo,
-                                "curgio" : mgio,
-                                "padre": padre,
-                                "tid": tid,
-                                "admin": admin,
-                                "calen": rows2,
-                                "pcalen": rows3
+                        if (rows[0].TOR_COD_PADRE) {
+                            var q_padr = " select * from Torneo where TOR_COD_PADRE = " + rows[0].TOR_COD_PADRE + " order by TOR_COD_TORNEO";
+                            connection.query(q_padr, function (err4, rows4) {
+                                padre = rows4;
                             });
+                        }
+
+                        connection.query(q_massimo, function (err5, rows5) {
+                            massimo = rows5[0].tot_gio;
                         });
 
+                        connection.query(q_currgio, function (err6, rows6) {
+                            if (!err6) {
+                                mgio = rows6[0].cur_gio;
+                            }
+                            else {
+                                mgio = 1;
+                            }
 
-                    });
+                        });
+
+                        // console.log(mgio);
+
+                        if (req.session.utente == rows[0].TOR_COD_MASTER) {
+                            admin = true;
+                        }
+
+                        connection.query(past, function (err3, rows3) {
+
+
+                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio',TIME_FORMAT(ora_inizio,'%H:%i')'ora' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
+                            connection.query(cal_query, function (err2, rows2) {
+                                connection.release();
+                                res.render('ttorneo', {
+                                    "title": rows[0].TOR_DESCR_TORNEO,
+                                    "image": rows[0].TOR_IMAGE,
+                                    "numgiorn": massimo,
+                                    "curgio": mgio,
+                                    "padre": padre,
+                                    "tid": tid,
+                                    "admin": admin,
+                                    "calen": rows2,
+                                    "pcalen": rows3
+                                });
+                            });
+
+
+                        });
+                    }
+                    else {
+                        var admin = false;
+                        var padre = {};
+                        var massimo = 1;
+                        var mgio = 1;
+
+                        if (rows[0].TOR_COD_PADRE) {
+                            var q_padr = " select * from Torneo where TOR_COD_PADRE = " + rows[0].TOR_COD_PADRE + " order by TOR_COD_TORNEO";
+                            connection.query(q_padr, function (err4, rows4) {
+                                padre = rows4;
+                            });
+                        }
+
+                        connection.query(q_massimo, function (err5, rows5) {
+                            massimo = rows5[0].tot_gio;
+                        });
+
+                        connection.query(q_currgio, function (err6, rows6) {
+                            if (!err6) {
+                                mgio = rows6[0].cur_gio;
+                            }
+                            else {
+                                mgio = 1;
+                            }
+
+                        });
+
+                        // console.log(mgio);
+
+                        if (req.session.utente == rows[0].TOR_COD_MASTER) {
+                            admin = true;
+                        }
+
+                        connection.query(past, function (err3, rows3) {
+
+
+                            var cal_query = "select *, date_format(dt_inizio,'%d/%m/%Y')'inizio',TIME_FORMAT(ora_inizio,'%H:%i')'ora' from v_global_calen where cod_torneo = " + tid + " and dt_inizio > sysdate() and ( cod_home = " + req.session.id_squadra + " or cod_away = " + req.session.id_squadra + " ) order by dt_inizio";
+                            connection.query(cal_query, function (err2, rows2) {
+                                connection.release();
+                                res.render('ttorneo2', {
+                                    "title": rows[0].TOR_DESCR_TORNEO,
+                                    "image": rows[0].TOR_IMAGE,
+                                    "numgiorn": massimo,
+                                    "curgio": mgio,
+                                    "padre": padre,
+                                    "tid": tid,
+                                    "admin": admin,
+                                    "calen": rows2,
+                                    "pcalen": rows3
+                                });
+                            });
+
+
+                        });
+                    }
                 }
 
             });
