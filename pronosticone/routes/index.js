@@ -937,6 +937,7 @@ router.post('/salvatorneo', function(req,res){
     var pool = req.pool;
     var tid = req.body.torneo;
     var ngio = req.body.giorn;
+    var torn1upd = false;
 
     var q1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+" AND nro_giornata = "+ngio;
 
@@ -975,7 +976,8 @@ router.post('/salvatorneo', function(req,res){
                     connection.query(upd_q,function(err,rows){
                         connection.release();
                         if(!err) {
-                            res.send('OK');
+                           // res.send('OK');
+                            torn1upd = true;
                         }
                     });
 
@@ -987,6 +989,68 @@ router.post('/salvatorneo', function(req,res){
             }
 
         });
+
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+    });
+
+//////GESTIONE COPPA
+    var checkt = "select * from Torneo where TOR_COD_TORNEO ="+tid;
+    var tiptorn = 1;
+
+    pool.getConnection(function(err,connection){
+        if (err) {
+            connection.release();
+            res.json({"code" : 100, "status" : "Error in connection database"});
+            return;
+        }
+        connection.query(checkt,function(err,rows){
+            //connection.release();
+            if(!err) {
+               // res.send('OK');
+                tiptorn = rows[0].TOR_TIPO_TORNEO;
+            }
+        });
+
+        if(tiptorn ==1){
+            /// TORNEO ALL'ITALIANA
+            connection.release();
+            if(torn1upd)
+            {
+                res.send('OK');
+            }
+        }
+        else if(tiptorn == 2){
+            /// COPPA
+
+            // query ritorna 1 se è l'ultima giornata del turno, 0 altrimenti
+            var chkturn = "SELECT IF( (select MAX(TU_NRO_GIORNATA) from TURNI where TU_NRO_TUNRO = (select TU_NRO_TURNO from TURNI where TU_NRO_GIORNATA = "+ngio+" )) == "+ngio+", 1, 0) 'CHK1' from DUAL";
+            var last = false;
+
+            connection.query(chkturn, function(err, rows2){
+                if(!err){
+                    if(rows.CHK1 == 1){
+                        /// CALCOLO CHI HA VINTO
+
+                        /// UPDATE IN CALENDARIO
+
+                    }
+                    else{
+                        ///DISPUTATA L'ANDATA
+                        connection.release();
+                        if(torn1upd)
+                        {
+                            res.send('OK');
+                        }
+                    }
+                }
+            });
+
+        }
+
+
 
         connection.on('error', function(err) {
             res.json({"code" : 100, "status" : "Error in connection database"});
