@@ -1022,20 +1022,20 @@ router.post('/salvatorneo', function(req,res){
                 res.send('OK');
             }
         }
-        else if(tiptorn == 2){
+        else if(tiptorn == 3){
             /// COPPA
 
             // query ritorna 1 se è l'ultima giornata del turno, 0 altrimenti
-            var chkturn = "SELECT IF( (select MAX(TU_NRO_GIORNATA) from TURNI where TU_NRO_TUNRO = (select TU_NRO_TURNO from TURNI where TU_NRO_GIORNATA = "+ngio+" )) == "+ngio+", 1, 0) 'CHK1' from DUAL";
+            var chkturn = "SELECT IF( (select MAX(TU_NRO_GIORNATA) from TURNI where TU_COD_TORNEO = "+tid+" AND TU_NRO_TURNO = (select TU_NRO_TURNO from TURNI where TU_COD_TORNEO = "+tid+" AND TU_NRO_GIORNATA = "+ngio+" )) = "+ngio+" , 1, 0) as CHK1 from DUAL";
             var last = false;
 
             connection.query(chkturn, function(err, rows2){
                 if(!err){
                     if(rows.CHK1 == 1){
-                        /// CALCOLO CHI HA VINTO
-
-                        /// UPDATE IN CALENDARIO
-
+                        var upd_coppa = "CALL upd_coppa("+tid+","+ngio+")";
+                        connection.query(upd_coppa,function(err, rows3){
+                            res.send('OK');
+                        });
                     }
                     else{
                         ///DISPUTATA L'ANDATA

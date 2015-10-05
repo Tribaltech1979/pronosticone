@@ -1,6 +1,6 @@
 extends layout
 block content
-    h1.text-left Benvenuto #{user}
+    h1.text-left Benvenuto #{user} &nbsp;
         div.btn-group
             button.btn.btn-default.dropdown-toggle(data-toggle="dropdown",aria-haspopup="true",aria-expanded="false")
                 span.glyphicon.glyphicon-cog
@@ -8,24 +8,24 @@ block content
                 li
                     a(href="/gestsq")
                         span.glyphicon.glyphicon-list
-                        | Opzioni
+                        |&nbsp; Opzioni
                 li
                     a(href="/cambiop")
                         span.glyphicon.glyphicon-sunglasses
-                        | Cambio Password
+                        |&nbsp; Cambio Password
                 li.divider(role="separator")
                 li
                     a(href="/logoff")
                         span.glyphicon.glyphicon-off
-                        | Logoff
+                        |&nbsp; Logoff
 block mainbar
     h2.text-left I tuoi tornei
     div.list-group(style="max-height: 300px; overflow-y:scroll;")
         each user, i in torneo
             a.list-group-item(href="/torneo?tid=#{user.cod_torneo}")
                 img.img-thumbnail.pull-left(src="img/#{user.image}",width="50", height="65")
-                h4.list-group-item-heading #{user.descr_torneo}
-                p.list-group-item-text Classifica
+                h4.list-group-item-heading &nbsp; #{user.descr_torneo}
+                p.list-group-item-text &nbsp; Classifica
 block mainleft
     h2 Partite disputate
     div.list-group(style="max-height:300px;overflow-y:scroll;")
