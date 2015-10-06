@@ -5,12 +5,30 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session')
-
+var fs = require('fs');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+var dbfile = 'db.sk';
+var configuration = JSON.parse(fs.readFileSync(dbfile));
+
+var multer          =       require('multer');
+var upload      =   multer({ dest: '/img/team/'});
+
+
+app.use(multer({ dest: '/img/team/',
+    rename: function (fieldname, filename) {
+        return filename+Date.now();
+    },
+    onFileUploadStart: function (file) {
+        console.log(file.originalname + ' is starting ...');
+    },
+    onFileUploadComplete: function (file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+    }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,9 +49,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 var mysql = require('mysql');
 var pool = mysql.createPool({
     connectionLimit : 100,
-    host : 'localhost',
-    user : 'pron',
-    password :'pron',
+    host :  configuration.database,
+    user : configuration.username,
+    password :configuration.password,
     database : 'pronosticone',
     debug : false,
     dateStrings :true,
@@ -42,6 +60,7 @@ var pool = mysql.createPool({
 
 app.use(function(req,res,next){
    req.pool = pool;
+    req.upload = upload;
     next();
 });
 

@@ -898,6 +898,16 @@ if(req.session.id_squadra) {
 
 });
 
+
+app.post('/photo',function(req,res){
+    req.upload(req,res,function(err) {
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+        res.end("File is uploaded");
+    });
+})
+
 //////////////////////////
 //////////// ELAB TORNEO
 /////////////////////////
