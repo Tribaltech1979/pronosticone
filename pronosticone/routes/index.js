@@ -897,9 +897,57 @@ if(req.session.id_squadra) {
 }
 
 });
+///////////////////////////////////
+///// Real Time
+///////////////////////////////////
+router.get('/rt*',function(req,res){
+    var pool = req.pool;
+    var tid = req.query.tid;
+    var check1 = "SELECT * FROM v_punti2 WHERE cod_torneo = "+tid+" AND nro_giornata = ( SELECT min(CAL_NRO_GIORNATA) from Calendario where CAL_COD_TORNEO = "+ tid+" AND CAL_PUNTI_HOME is null ) ";
+    //// TO DO estrarre totale partite caricate, totale partite e %partite
+    var check2 = "";
+
+    pool.getConnection(function(err,connection) {
+        if (err) {
+            connection.release();
+            res.json({"code": 100, "status": "Error in connection database"});
+            return;
+        }
+
+        connection.query(check1,function(err,rows){
+          //  connection.release();
+            if(!err) {
+                connection.query(check2,function(err,rows2){
+
+                    connection.release();
+                    if(!err){
+                        res.render('rt',{
+                            "pargio" : rows2[0].pargio,
+                            "partot" : rows2[0].partot,
+                            "valuenow" : rows2[0].valuenow,
+                            "list" : rows
+                        });
+                    }
+                });
+
+            }
+        });
 
 
-app.post('/photo',function(req,res){
+        connection.on('error', function(err) {
+            res.json({"code" : 100, "status" : "Error in connection database"});
+
+        });
+
+    });
+});
+
+
+/////////////////////////////////////
+/////// FOTO
+////////////////////////////////////
+
+router.post('/photo',function(req,res){
     req.upload(req,res,function(err) {
         if(err) {
             return res.end("Error uploading file.");

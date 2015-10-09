@@ -5,7 +5,15 @@ $(document).ready(function () {
     $(".G2").attr('disable','true');
     $(".alert").hide();
 
-})
+});
+
+$(':file').change(function(){
+    var file = this.files[0];
+    var name = file.name;
+    var size = file.size;
+    var type = file.type;
+    //Your validation
+});
 
 function checkSubmit(){
     $(".alert").hide();
@@ -65,7 +73,33 @@ function validate1() {
 
 }
 
-function validate2(){}
+function validate2(){
+    $(".alert").hide();
+
+    var formData = new FormData($(':file'));
+    $.ajax({
+        url: '/photo',  //Server script to process data
+        type: 'POST',
+        xhr: function() {  // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if(myXhr.upload){ // Check if upload property exists
+                myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
+            }
+            return myXhr;
+        },
+        //Ajax events
+        //beforeSend: beforeSendHandler,
+        //success: completeHandler,
+        //error: errorHandler,
+        // Form data
+        data: formData,
+        //Options to tell jQuery not to process data or worry about content-type.
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+
+}
 
 function validate3(){
     $(".alert").hide();
