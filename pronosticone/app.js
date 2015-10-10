@@ -36,7 +36,7 @@ app.use(session({secret : 'provaprovaprovaprova',
                     }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+/*
 app.use(multer({ dest: './public/img/team/',
     rename: function (fieldname, filename) {
         return filename+Date.now();
@@ -47,7 +47,7 @@ app.use(multer({ dest: './public/img/team/',
     onFileUploadComplete: function (file) {
         console.log(file.fieldname + ' uploaded to  ' + file.path)
     }
-}));
+}));*/
 
 var mysql = require('mysql');
 var pool = mysql.createPool({
