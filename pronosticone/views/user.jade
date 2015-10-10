@@ -33,7 +33,9 @@ block mainbar
                     h4.list-group-item-heading &nbsp; #{user.descr_torneo}
                     p.list-group-item-text &nbsp; Classifica &nbsp; &nbsp; &nbsp;
                         a(href="/rt?tid=#{user.cod_torneo})
-                            i.fa.fa-television(style="color:red")
+                            span.fa-stack.fa-1x
+                                i.fa.fa-television.fa-stack-2x(style="color:red")
+                                i.fa.fa-futbol-o.fa-stack-1x
                             |Live
 block mainleft
     h2 Partite disputate
