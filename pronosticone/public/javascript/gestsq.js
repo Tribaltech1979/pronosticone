@@ -2,7 +2,6 @@
  * Created by Schiappacassed on 19/09/2015.
  */
 $(document).ready(function () {
-    $(".G2").attr('disable','true');
     $(".alert").hide();
 
 });
@@ -76,7 +75,7 @@ function validate1() {
 function validate2(){
     $(".alert").hide();
 
-    var formData = new FormData($(':file'));
+    var formData = $(':file').val();
     $.ajax({
         url: '/photo',  //Server script to process data
         type: 'POST',
