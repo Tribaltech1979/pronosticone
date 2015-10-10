@@ -15,10 +15,10 @@ var dbfile = 'db.sk';
 var configuration = JSON.parse(fs.readFileSync(dbfile));
 
 var multer          =       require('multer');
-var upload      =   multer({ dest: '/img/team/'});
+var upload      =   multer({ dest: '/public/img/team/'});
 
 
-app.use(multer({ dest: '/img/team/',
+app.use(multer({ dest: '/public/img/team/',
     rename: function (fieldname, filename) {
         return filename+Date.now();
     },
