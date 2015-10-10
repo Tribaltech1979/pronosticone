@@ -935,6 +935,7 @@ router.get('/rt*',function(req,res){
                             "pargio" : rows2[0].pargio,
                             "partot" : rows2[0].partot,
                             "valuenow" : rows2[0].valuenow,
+                            "cod_torneo" : tid,
                             "list" : rows
                         });
                     }
