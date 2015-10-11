@@ -1083,7 +1083,7 @@ router.post('/salvatorneo', function(req,res){
             }
         });
 
-        if(tiptorn ==1){
+        if(rows[0].TOR_TIPO_TORNEO == 1){
             /// TORNEO ALL'ITALIANA
             connection.release();
             if(torn1upd)
@@ -1091,7 +1091,7 @@ router.post('/salvatorneo', function(req,res){
                 res.send('OK');
             }
         }
-        else if(tiptorn == 3){
+        else if(rows[0].TOR_TIPO_TORNEO == 3){
             /// COPPA
 
             // query ritorna 1 se è l'ultima giornata del turno, 0 altrimenti
@@ -1100,9 +1100,10 @@ router.post('/salvatorneo', function(req,res){
 
             connection.query(chkturn, function(err, rows2){
                 if(!err){
-                    if(rows.CHK1 == 1){
+                    if(rows2[0].CHK1 == 1){
                         var upd_coppa = "CALL upd_coppa("+tid+","+ngio+")";
                         connection.query(upd_coppa,function(err, rows3){
+                            connection.release();
                             res.send('OK');
                         });
                     }
@@ -1117,6 +1118,9 @@ router.post('/salvatorneo', function(req,res){
                 }
             });
 
+        }
+        else{
+            console.log('Non trovato torneo');
         }
 
 
