@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var multer =   require('multer');
-var upload      =   multer({ dest: './public/img/team/'});
+//var multer =   require('multer');
+//var upload      =   multer({ dest: './public/img/team/'});
 
 /*
  router.use(multer({ dest: './public/img/team/',
@@ -974,7 +974,7 @@ router.get('/rt*',function(req,res){
 /////// FOTO
 ////////////////////////////////////
 
-router.post('/photo',multer({ dest: './public/img/team/',
+router.post('/photo', multer({ dest: './public/img/team/',
     rename: function (fieldname, filename) {
         return filename+Date.now();
     },
