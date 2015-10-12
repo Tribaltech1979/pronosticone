@@ -4,7 +4,7 @@ var router = express.Router();
 var multer =   require('multer');
 var upload      =   multer({ dest: './public/img/team/'});
 
-
+/*
  router.use(multer({ dest: './public/img/team/',
  rename: function (fieldname, filename) {
  return filename+Date.now();
@@ -16,7 +16,7 @@ var upload      =   multer({ dest: './public/img/team/'});
  console.log(file.fieldname + ' uploaded to  ' + file.path)
  }
  }));
-
+*/
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
