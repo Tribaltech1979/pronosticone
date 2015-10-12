@@ -974,8 +974,18 @@ router.get('/rt*',function(req,res){
 /////// FOTO
 ////////////////////////////////////
 
-router.post('/photo',upload.single(),function(req,res){
-    console.log("foto  "+ req.file);
+router.post('/photo',multer({ dest: './public/img/team/',
+    rename: function (fieldname, filename) {
+        return filename+Date.now();
+    },
+    onFileUploadStart: function (file) {
+        console.log(file.originalname + ' is starting ...');
+    },
+    onFileUploadComplete: function (file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+    }
+}),function(req,res){
+    console.log("foto  "+ req.files);
 
 })
 
