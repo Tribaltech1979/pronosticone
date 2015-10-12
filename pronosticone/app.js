@@ -14,8 +14,6 @@ var app = express();
 var dbfile = 'db.sk';
 var configuration = JSON.parse(fs.readFileSync(dbfile));
 
-var multer =   require('multer');
-var upload      =   multer({ dest: './public/img/team/'});
 
 
 
@@ -36,18 +34,7 @@ app.use(session({secret : 'provaprovaprovaprova',
                     }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-/*
-app.use(multer({ dest: './public/img/team/',
-    rename: function (fieldname, filename) {
-        return filename+Date.now();
-    },
-    onFileUploadStart: function (file) {
-        console.log(file.originalname + ' is starting ...');
-    },
-    onFileUploadComplete: function (file) {
-        console.log(file.fieldname + ' uploaded to  ' + file.path)
-    }
-}));*/
+
 
 var mysql = require('mysql');
 var pool = mysql.createPool({
@@ -63,7 +50,6 @@ var pool = mysql.createPool({
 
 app.use(function(req,res,next){
    req.pool = pool;
-    req.upload = upload;
     next();
 });
 

@@ -1,6 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
+var multer =   require('multer');
+var upload      =   multer({ dest: './public/img/team/'});
+
+
+ app.use(multer({ dest: './public/img/team/',
+ rename: function (fieldname, filename) {
+ return filename+Date.now();
+ },
+ onFileUploadStart: function (file) {
+ console.log(file.originalname + ' is starting ...');
+ },
+ onFileUploadComplete: function (file) {
+ console.log(file.fieldname + ' uploaded to  ' + file.path)
+ }
+ }));
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -959,7 +975,7 @@ router.get('/rt*',function(req,res){
 ////////////////////////////////////
 
 router.post('/photo',function(req,res){
-    req.upload(req,res,function(err) {
+    upload(req,res,function(err) {
         if(err) {
             return res.end("Error uploading file.");
         }
