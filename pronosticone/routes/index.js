@@ -975,6 +975,7 @@ router.get('/rt*',function(req,res){
 ////////////////////////////////////
 
 router.post('/photo',function(req,res){
+    console.log("foto");
     upload(req,res,function(err) {
         if(err) {
             return res.end("Error uploading file.");
