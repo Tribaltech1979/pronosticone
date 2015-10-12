@@ -5,7 +5,7 @@ var multer =   require('multer');
 var upload      =   multer({ dest: './public/img/team/'});
 
 
- app.use(multer({ dest: './public/img/team/',
+ router.use(multer({ dest: './public/img/team/',
  rename: function (fieldname, filename) {
  return filename+Date.now();
  },
