@@ -974,14 +974,9 @@ router.get('/rt*',function(req,res){
 /////// FOTO
 ////////////////////////////////////
 
-router.post('/photo',function(req,res){
-    console.log("foto");
-    upload(req,res,function(err) {
-        if(err) {
-            return res.end("Error uploading file.");
-        }
-        res.end("File is uploaded");
-    });
+router.post('/photo',upload.single(),function(req,res){
+    console.log("foto  "+ req.file);
+
 })
 
 //////////////////////////
