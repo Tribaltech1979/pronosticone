@@ -6,7 +6,8 @@
 extends layout
 block content
     script(src='/javascript/ristab.js')
-    h1 Risultato - #{tes.descr_torneo} - #{tes.sq_home} VS #{tes.sq_away} --- #{tes.gol_home} - #{tes.gol_away}
+    h1 #{tes.sq_home} VS #{tes.sq_away} --- #{tes.gol_home} - #{tes.gol_away}
+    h2 Risultato - #{tes.descr_torneo}
     div.alert.alert-danger
         a.close(href='#',data-dismiss='alert', aria-label='close') &times;
         | <strong> Attenzione </strong> Bisogna correggere prima di inviare
@@ -20,11 +21,11 @@ block mainbar
         h2 Risultati #{tes.sq_home}
         if tes.punti_home
             h3 Punti #{tes.punti_home}
-        table.table-bordered
+        table.table-responsive.table-bordered
             thead
                 tr
-                    th Squadra 1
-                    th Squadra 2
+                    th Casa
+                    th Trasferta
                     th Risultato
                     th Risultato
                     th Risultato
