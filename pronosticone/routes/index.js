@@ -1019,7 +1019,7 @@ router.get('/rt*',function(req,res){
 /////// FOTO
 ////////////////////////////////////
 
-router.post('/photo', upload.single() ,function(req,res){
+router.post('/photo', upload.single('userPhoto') ,function(req,res){
     console.log("foto  "+ req.files);
 
 })
