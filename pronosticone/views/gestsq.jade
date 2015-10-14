@@ -11,9 +11,9 @@ block content
     div.alert.alert-success
         a.close(href='#',data-dismiss='alert', aria-label='close') &times;
         |<strong> Successo </strong> Salvataggio completo
-block mainbar
+block mainleft
     form(name='cambia',id="cambia" , method='post', action='/gestsq')
-        table.table-bordered
+        table.table
             tbody
                 tr
                     td Nome Squadra
@@ -24,9 +24,12 @@ block mainbar
                 tr
                     td Immagine Squadra
                     td
-                        input.G2(type="file" , name="file")
+                        if user.SQ_IMAGE
+                            img.img-thumbnail(src="/img/team/#{user.SQ_IMAGE}",width="50", height="65")
+                        else
+                            i.fa.fa-shield.fa-5x(style="color:blue")
                     td
-                        button.btn.btn-success#btnSubmit(type="button", value="Upload", onclick='validate2()') Salva
+                        a.btn.btn-success#btnSubmit(href="/cimg") Cambia
                 tr
                     td Email
                     td
@@ -42,6 +45,5 @@ block mainbar
                             input.G4(type="checkbox" , name="G3", value="Attiva")
                     td
                         button.btn.btn-success#btnSubmit(type="button", value="Salva", onclick='validate3()') Salva
-block mainleft
     div.btn-group-vertical
         a.btn.btn-info(href="/utente") Principale

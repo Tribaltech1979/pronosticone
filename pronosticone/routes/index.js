@@ -321,6 +321,41 @@ router.post('/login',function(req,res){
 
 });
 ///////////////////
+//// CAMBIO IMAGE
+///////////////////
+router.get('/cimg', function(req,res){
+    var pool = req.pool;
+    if(req.session.id_squadra) {
+        var sq_query = 'select * from Squadre where SQ_ID_SQUADRA = '+req.session.id_squadra;
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                connection.release();
+                res.json({"code": 100, "status": "Error in connection database"});
+                return;
+            }
+
+            console.log('connected as id ' + connection.threadId);
+
+            connection.query(sq_query, function (err, rows) {
+                connection.release();
+                if (!err) {
+                    res.render('cimg', {
+                        "user": rows[0]
+                    });
+                }
+            });
+
+            connection.on('error', function (err) {
+                res.json({"code": 100, "status": "Error in connection database"});
+
+            });
+        });
+    }
+    else{
+        res.redirect('/login');
+    }
+});
+///////////////////
 //// LOGOFF
 /////////////////
 router.get('/logoff', function(req,res){
