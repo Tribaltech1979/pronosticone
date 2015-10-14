@@ -1020,8 +1020,8 @@ router.get('/rt*',function(req,res){
 ////////////////////////////////////
 
 router.post('/photo', upload.single('userPhoto') ,function(req,res){
-    console.log("foto  "+ req.file);
-
+    console.log("foto - path : "+ req.file.path+" name : "+req.file.name);
+    var pool = req.pool;
     var tmp_path = req.file.path;
 
     var target_path = './public/img/team/' + req.file.originalname;
