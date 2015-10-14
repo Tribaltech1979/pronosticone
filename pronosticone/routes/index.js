@@ -1020,7 +1020,17 @@ router.get('/rt*',function(req,res){
 ////////////////////////////////////
 
 router.post('/photo', upload.single('userPhoto') ,function(req,res){
-    console.log("foto  "+ req.files);
+    console.log("foto  "+ req.file);
+
+    var tmp_path = req.file.path;
+
+    var target_path = './public/img/team/' + req.file.originalname;
+
+    var src = fs.createReadStream(tmp_path);
+    var dest = fs.createWriteStream(target_path);
+    src.pipe(dest);
+    src.on('end', function() { res.redirect('/gestsq')});
+    src.on('error', function(err) { res.render('error'); });
 
 })
 
