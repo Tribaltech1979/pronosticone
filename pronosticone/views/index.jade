@@ -1,14 +1,14 @@
-extends layout
+extends layout2
 
 block content
   div.alert.alert-info
     a.close(href='#',data-dismiss='alert', aria-label='close') &times;
     | <strong> Attenzione </strong> questo sito utilizza i cookies. Continuando si da' il consenso.
-  h1= title
-  p Benvenuti al #{title}
 block mainright
         h1 Login
         form.form-group#formAddUser(name="adduser",method="post",action="/login")
-            input.form-group#inputUserName(type="text", placeholder="username", name="username")
-            input.form-group#inputUserPassword(type="password", placeholder="password", name="password")
+            input#inputUserName(type="text", placeholder="username", name="username")
+            p
+            input#inputUserPassword(type="password", placeholder="password", name="password")
+            p
             button#btnSubmit.btn.btn-default(type="submit") Login

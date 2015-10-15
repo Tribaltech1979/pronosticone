@@ -30,7 +30,10 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: #00a651;
+    text-shadow: 0px -1px 0px #a0df54;
+    font-weight: bold;
+    text-align : center;
 }
 
 .slist{
