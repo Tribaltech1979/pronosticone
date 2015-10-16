@@ -3,25 +3,30 @@
  */
 var currentBackground = 0;
 var backgrounds = [];
-backgrounds[0] = '../images/header1.jpg';
-backgrounds[1] = '../images/header2.jpg';
-backgrounds[2] = '../images/header3.jpg';
+backgrounds[0] = './img/rovesciata.png';
+backgrounds[1] = './img/Worldcup.png';
+backgrounds[2] = './img/Champions.png';
+backgrounds[3] = './img/pallone2.jpg';
+
 
 function changeBackground() {
     currentBackground++;
-    if(currentBackground > 2) currentBackground = 0;
+    if(currentBackground > 3) currentBackground = 0;
 
-    $('body#home h1#siteH1').fadeOut(100,function() {
-        $('body#home h1#siteH1').css({
+    $("#prova").fadeOut(1000,function() {
+        $("body").css({
             'background-image' : "url('" + backgrounds[currentBackground] + "')"
         });
-        $('body#home h1#siteH1').fadeIn(100);
+        $("#prova").fadeIn(1000);
     });
 
 
-    setTimeout(changeBackground, 2000);
+    setTimeout(changeBackground, 8000);
 }
 
 $(document).ready(function() {
-    setTimeout(changeBackground, 2000);
+    $("body").css({'background-repeat': "no-repeat"});
+    $("body").css({'background-position': "center"});
+
+    setTimeout(changeBackground, 1000);
 });
