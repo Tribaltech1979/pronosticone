@@ -1150,7 +1150,7 @@ router.post('/salvatorneo', function(req,res){
             }
         });
 
-        if(rows[0].TOR_TIPO_TORNEO == 1){
+        if(tiptorn == 1){
             /// TORNEO ALL'ITALIANA
             connection.release();
             if(torn1upd)
