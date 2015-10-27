@@ -1029,7 +1029,38 @@ router.post('/photo', upload.single('userPhoto') ,function(req,res){
     var src = fs.createReadStream(tmp_path);
     var dest = fs.createWriteStream(target_path);
     src.pipe(dest);
-    src.on('end', function() { res.redirect('/gestsq')});
+    src.on('end', function() {
+            fs.unlinkSync(tmp_path);
+            var img_query = "UPDATE Squadre set SQ_IMAGE = "+req.file.originalname+" where SQ_ID_SQUADRA = "+ req.id_squadra;
+            pool.getConnection(function(err,connection) {
+                if (err) {
+                    connection.release();
+                    res.json({"code": 100, "status": "Error in connection database"});
+                    return;
+                }
+
+                connection.query(img_query,function(err,rows){
+                    if(!err) {
+                        connection.query(check2,function(err,rows2){
+
+                            connection.release();
+                            if(!err){
+                                res.redirect('/gestsq');
+                            }
+                        });
+
+                    }
+                });
+
+
+                connection.on('error', function(err) {
+                    res.json({"code" : 100, "status" : "Error in connection database"});
+
+                });
+
+            });
+        }
+    );
     src.on('error', function(err) { res.render('error'); });
 
 })
